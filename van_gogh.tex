@@ -26,7 +26,25 @@
 	\subsection{Problems Encountered}
 	Due to the hardware configuration available locally, we were not able to utilize GPU acceleration for our training. This meant slower training, but should not affect the quality of results, as the MNIST test was successful under the same conditions.
 
-	Additionally, despite running the model for 8000 epochs of training, we did not achieve the expected results.
+	Additionally, despite running the model for 8000 epochs of training, we did not achieve the expected results, and were concerned about potential overfitting.
+
+	\section{Weeks 7-8}
+	\subsection{Work Completed}
+	After our first attempt did not yield results, we began looking into alternate approaches. While researching other GAN types that could be used, we discovered that the researchers from the CycleGAN\cite{CycleGAN2017}\cite{isola2017image} project had compiled their own Van Gogh dataset. The CycleGAN Van Gogh dataset consisted of 400 pictures from WikiArt\cite{wikiartVanGogh}, which was nearly twice as many images as the 211 we had been able to gather from the Van Gogh Museum. Additionally, the CycleGAN researchers had compiled a similar dataset of 1072 paintings by Claude Monet, also from WikiArt. We then began training a new model on the CycleGAN Van Gogh dataset.
+	\subsection{Importance of Work}
+	Since we knew from previous research that performance of neural networks generally improves with larger training data, these new datasets represented an unexpected opportunity to improve the quality of our results.
+	\subsection{Problems Encountered}
+	Unfortunately, even with this larger dataset, the GAN did not produce clear images. The color palettes of the generated images were reminiscent of a Van Gogh painting, but no clearly defined features were present. Any apparent features were extremely vague, and concerns about the Rorschach effect were raised.
+
+	Additionally, since the CycleGAN dataset was nearly twice as big as the Van Gogh Museum dataset, training times increased proportionally. This meant that fewer epochs of training were able to be completed in the same amount of time.
+
+	\section{Weeks 9-10}
+	\subsection{Work Completed}
+	At this point, we decided to try a somewhat different tactic. We decided to switch to the Monet dataset, and test different ways of approaching the task in order to try to figure out which might work best. Variables to be tested include the specific GAN being used, including both supervised and unsupervised GANs, and whether color or grayscale images would be used.
+	\subsection{Importance of Work}
+	This approach allows us to test a number of possible methods without fully committing to any of them, instead of spending all of our resources on a single variation and hoping for it to work. Additionally, we discovered that another, similar project had been attempted in the past\cite{otherGanGogh}, and that those researchers had encountered the same performance issues as us. This lends further credibility to our belief that the size of the Van Gogh datasets was simply too small for the GAN to learn from.
+	\subsection{Problems Encountered}
+	This work is ongoing, but as previously noted, increasing the size of the dataset increases the time required to train the model. The Van Gogh Museum dataset took about 35 seconds per epoch, and the CycleGAN Van Gogh dataset took about 70. However, the Monet dataset takes nearly two and a half minutes per epoch, which severely limits the number of epochs that can be completed.
 \bstctlcite{IEEEexample:BSTcontrol}
 \bibliographystyle{IEEEtran}
 \bibliography{van_gogh_bib}
