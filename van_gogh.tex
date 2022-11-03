@@ -11,7 +11,16 @@
 \begin{document}
 	\maketitle
 	\section{Introduction}
-
+	\subsection{What is a GAN?}
+	A GAN (Generative Adversarial Network) is a type of artificial intelligence composed of two neural networks, first introduced by Goodfellow et al in 2014.\cite{NIPS2014_5ca3e9b1}
+	One, the generator, tries to generate images that resemble the training data.
+	The other, the discriminator, attempts to determine whether any given image is from the original dataset.
+	As the discriminator gets better at detecting fakes, the generator has to improve the quality of its images in order to go undetected.
+	This feedback loop produces images that become progressively more similar to the original input.
+	The specific architecture of GAN that we used in this research was a Deep Convolutional GAN, or DCGAN, introduced by Radford et al in 2015.\cite{radford2015unsupervised}
+	\subsection{Research Goals}
+	By training our GAN on images of paintings by Vincent Van Gogh, we hope to learn what specific features make his artwork so immediately recognizable.
+	Towards this purpose, we have collected 211 images from the Van Gogh Museum's website for use in training.
 	\section{Weekly Progress}
 	\subsection{Weeks 1-3}
 	\subsubsection{Work Completed}
@@ -55,7 +64,7 @@
 	Additionally, since the CycleGAN dataset was nearly twice as big as the Van Gogh Museum dataset, training times increased proportionally.
 	This meant that fewer epochs of training were able to be completed in the same amount of time.
 
-	\subsection{Weeks 9-10}
+	\subsection{Week 9}
 	\subsubsection{Work Completed}
 	At this point, we decided to try a somewhat different tactic.
 	We decided to switch to the Monet dataset, and test different ways of approaching the task in order to try to figure out which might work best.
@@ -65,9 +74,23 @@
 	Additionally, we discovered that another, similar project had been attempted in the past\cite{otherGanGogh}, and that those researchers had encountered the same performance issues as us.
 	This lends further credibility to our belief that the size of the Van Gogh datasets was simply too small for the GAN to learn from.
 	\subsubsection{Problems Encountered}
-	This work is ongoing, but as previously noted, increasing the size of the dataset increases the time required to train the model.
+	As previously noted, increasing the size of the dataset increases the time required to train the model.
 	The Van Gogh Museum dataset took about 35 seconds per epoch, and the CycleGAN Van Gogh dataset took about 70.
 	However, the Monet dataset takes nearly two and a half minutes per epoch, which severely limits the number of epochs that can be completed.
+
+	\subsection{Week 10}
+	\subsubsection{Work Completed}
+	After speaking with our advisor this week, we decided to change focus once again.
+	Our current goal is to attempt to replicate the results of the other GANGogh project \cite{otherGanGogh}.
+	We are training a model on the dataset of landscape paintings that Jones and Bonafilia compiled from WikiArt.
+	This has so far been much more successful than previous attempts with other datasets.
+	\subsubsection{Importance of Work}
+	If we are able to reproduce the results of Jones and Bonafilia, it will further confirm that the problems we encountered with the Van Gogh datasets was due to their size.
+	\subsubsection{Problems Encountered}
+	At 15,000 images, the landscapes dataset is much larger than any of our previous datasets, with the sole exception of the MNIST dataset.
+	Despite reducing the size of the training images to 64 by 64 pixels, this dataset still takes between 5 and 15 minutes\footnote{Most epochs take 5 minutes, but occasionally one will take two or three times that long, presumably due to other applications running at the same time. This is, however, a much greater variance than has been observed with other datasets, even under the same conditions.} per epoch of training.
+	However, unlike previous time-consuming training attempts, this one appears to be making significant progress.
+	The small size of the images limits the amount of detail that can be shown, but after 300 epochs, the model is consistently producing convincing images.
 \bibliographystyle{IEEEtran}
 \bibliography{van_gogh_bib}
 \nocite{*}
