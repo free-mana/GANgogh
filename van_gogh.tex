@@ -11,99 +11,115 @@
 \begin{document}
 	\maketitle
 	\section{Introduction}
-	\subsection{What is a GAN?}
-	A GAN (Generative Adversarial Network) is a type of artificial intelligence composed of two neural networks, first introduced by Goodfellow et al in 2014.\cite{NIPS2014_5ca3e9b1}
-	One, the generator, tries to generate images that resemble the training data.
-	The other, the discriminator, attempts to determine whether any given image is from the original dataset.
-	As the discriminator gets better at detecting fakes, the generator has to improve the quality of its images in order to go undetected.
-	This feedback loop produces images that become progressively more similar to the original input.
-	The specific architecture of GAN that we used in this research was a Deep Convolutional GAN, or DCGAN, introduced by Radford et al in 2015.\cite{radford2015unsupervised}
-	\subsection{Research Goals}
-	By training our GAN on images of paintings by Vincent Van Gogh, we hope to learn what specific features make his artwork so immediately recognizable.
-	Towards this purpose, we have collected 211 images from the Van Gogh Museum's website for use in training.
+		\subsection{Background}
+			A GAN (Generative Adversarial Network) is a type of artificial intelligence composed of two neural networks, first introduced by Goodfellow et al in 2014.\cite{NIPS2014_5ca3e9b1}
+			One, the generator, tries to generate images that resemble the training data.
+			The other, the discriminator, attempts to determine whether any given image is from the original dataset.
+			As the discriminator gets better at detecting fakes, the generator has to improve the quality of its images in order to go undetected.
+			This feedback loop produces images that become progressively more similar to the original input.
+			The specific architecture of GAN that we used in this research was a Deep Convolutional GAN, or DCGAN, introduced by Radford et al in 2015.\cite{radford2015unsupervised}
+		\subsection{Motivation}
+			By training our GAN on images of paintings by Vincent Van Gogh, we hope to learn what specific features make his artwork so immediately recognizable.
+			Towards this purpose, we have collected 211 images from the Van Gogh Museum's website for use in training.
+			Furthermore, we hope to create a tool that others can use to easily train their own GANs on their own data.
 
-	\section{Findings}
+	\section{Resources Created}
+		To accomplish our goals, we assembled a Jupyter notebook that trains a DCGAN on user-specified data.
+		Large parts of our code come from the TorchGAN\cite{pal2019torchgan} project's tutorial examples.
 
+
+	\section{Development Process}
+
+	\section{Generation of Results}
+		\subsection{Parameters Used}
+
+		\subsection{Results}
 
 	\section{Conclusion}
-	Our research has emphasized a key detail in machine learning: you need a very large dataset to get good results.
-	This was shown by our models failing to converge with smaller dataset sizes.
-	The datasets with 211, 400, and even 1000 images all failed to converge.
-	The model with the smallest dataset that achieved convincing results was trained on 15,000 images.
-	Future research may include determining the threshold more precisely, as there is still a large gap between 1000 and 15,000.
-	Due to this inherent limiting requirement, it seems that our initial goal of computationally determining what characteristics define Van Gogh's art was likely unattainable.
+		Our research has emphasized a key detail in machine learning: you need a very large dataset to get good results.
+		This was shown by our models failing to converge with smaller dataset sizes.
+		The datasets with 211, 400, and even 1000 images all failed to converge.
+		The model with the smallest dataset that achieved convincing results was trained on 15,000 images.
+		Future research may include determining the threshold more precisely, as there is still a large gap between 1000 and 15,000.
+		Due to this inherent limiting requirement, it seems that our initial goal of computationally determining what characteristics define Van Gogh's art was likely unattainable.
 
+\appendix
+	\section{Appendix: Weekly Progress}
+		\subsection{Weeks 1-3}
+			\subsubsection{Work Completed}
+				During this time period, we tested sample code from the TorchGAN\cite{pal2019torchgan} project using data from the MNIST\cite{lecun2010mnist} dataset.
+				We also began writing code to provide an interface for the TorchGAN code to read from the training data we had previously collected from the Van Gogh Museum (e.g., \cite{001}, \cite{002}, \cite{003}).
+			\subsubsection{Importance of Work}
+				Training on the MNIST dataset demonstrated the validity of the training code.
+				By verifying the results in this way, we can state with confidence that any deviation is due to the dataset, rather than the code.
+			\subsubsection{Problems Encountered}
+				After working on writing a subclass to use as an interface between the code and the image data, we discovered that the code was redundant, as there was a general-purpose class included in TorchGAN that could be used for that exact purpose.
+				This was a setback, but ultimately allowed us to continue to move forward without having to worry about testing custom code.
 
-	\section{Weekly Progress}
-	\subsection{Weeks 1-3}
-	\subsubsection{Work Completed}
-	During this time period, we tested sample code from the TorchGAN\cite{pal2019torchgan} project using data from the MNIST\cite{lecun2010mnist} dataset.
-	We also began writing code to provide an interface for the TorchGAN code to read from the training data we had previously collected from the Van Gogh Museum (e.g., \cite{001}, \cite{002}, \cite{003}).
+		\subsection{Weeks 4-6}
+			\subsubsection{Work Completed}
+				This period of the project was almost entirely spent on training the model on the Van Gogh Museum dataset.
+				We decided that, for the sake of reliability and availability, we would train the model locally.
+			\subsubsection{Importance of Work}
+				Training the model represents the bulk of the work of this project.
+				While a certain amount of time has to be allocated for setting things up, the real results of the project are the models produced by training, as well as the images generated by those models.
+			\subsubsection{Problems Encountered}
+				Due to the hardware configuration available locally, we were not able to utilize GPU acceleration for our training.
+				This meant slower training, but should not affect the quality of results, as the MNIST test was successful under the same conditions.
+				Additionally, despite running the model for 8000 epochs of training, we did not achieve the expected results, and were concerned about potential overfitting.
 
-	\subsubsection{Importance of Work}
-	Training on the MNIST dataset demonstrated the validity of the training code.
-	By verifying the results in this way, we can state with confidence that any deviation is due to the dataset, rather than the code.
+		\subsection{Weeks 7-8}
+			\subsubsection{Work Completed}
+				After our first attempt did not yield results, we began looking into alternate approaches.
+				While researching other GAN types that could be used, we discovered that the researchers from the CycleGAN\cite{CycleGAN2017}\cite{isola2017image} project had compiled their own Van Gogh dataset.
+				The CycleGAN Van Gogh dataset consisted of 400 pictures from WikiArt\cite{wikiartVanGogh}, which was nearly twice as many images as the 211 we had been able to gather from the Van Gogh Museum.
+				Additionally, the CycleGAN researchers had compiled a similar dataset of 1072 paintings by Claude Monet, also from WikiArt.
+				We then began training a new model on the CycleGAN Van Gogh dataset.
+			\subsubsection{Importance of Work}
+				Since we knew from previous research that performance of neural networks generally improves with larger training data, these new datasets represented an unexpected opportunity to improve the quality of our results.
+			\subsubsection{Problems Encountered}
+				Unfortunately, even with this larger dataset, the GAN did not produce clear images.
+				The color palettes of the generated images were reminiscent of a Van Gogh painting, but no clearly defined features were present.
+				Any apparent features were extremely vague, and concerns about the Rorschach effect were raised.
 
-	\subsubsection{Problems Encountered}
-	After working on writing a subclass to use as an interface between the code and the image data, we discovered that the code was redundant, as there was a general-purpose class included in TorchGAN that could be used for that exact purpose.
-	This was a setback, but ultimately allowed us to continue to move forward without having to worry about testing custom code.
+				Additionally, since the CycleGAN dataset was nearly twice as big as the Van Gogh Museum dataset, training times increased proportionally.
+				This meant that fewer epochs of training were able to be completed in the same amount of time.
 
-	\subsection{Weeks 4-6}
-	\subsubsection{Work Completed}
-	This period of the project was almost entirely spent on training the model on the Van Gogh Museum dataset.
-	We decided that, for the sake of reliability and availability, we would train the model locally.
-	\subsubsection{Importance of Work}
-	Training the model represents the bulk of the work of this project.
-	While a certain amount of time has to be allocated for setting things up, the real results of the project are the models produced by training, as well as the images generated by those models.
-	\subsubsection{Problems Encountered}
-	Due to the hardware configuration available locally, we were not able to utilize GPU acceleration for our training.
-	This meant slower training, but should not affect the quality of results, as the MNIST test was successful under the same conditions.
-	Additionally, despite running the model for 8000 epochs of training, we did not achieve the expected results, and were concerned about potential overfitting.
+		\subsection{Week 9}
+			\subsubsection{Work Completed}
+				At this point, we decided to try a somewhat different tactic.
+				We decided to switch to the Monet dataset, and test different ways of approaching the task in order to try to figure out which might work best.
+				Variables to be tested include the specific GAN being used, including both supervised and unsupervised GANs, and whether color or grayscale images would be used.
+			\subsubsection{Importance of Work}
+				This approach allows us to test a number of possible methods without fully committing to any of them, instead of spending all of our resources on a single variation and hoping for it to work.
+				Additionally, we discovered that another, similar project had been attempted in the past\cite{otherGanGogh}, and that those researchers had encountered the same performance issues as us.
+				This lends further credibility to our belief that the size of the Van Gogh datasets was simply too small for the GAN to learn from.
+			\subsubsection{Problems Encountered}
+				As previously noted, increasing the size of the dataset increases the time required to train the model.
+				The Van Gogh Museum dataset took about 35 seconds per epoch, and the CycleGAN Van Gogh dataset took about 70.
+				However, the Monet dataset takes nearly two and a half minutes per epoch, which severely limits the number of epochs that can be completed.
 
-	\subsection{Weeks 7-8}
-	\subsubsection{Work Completed}
-	After our first attempt did not yield results, we began looking into alternate approaches.
-	While researching other GAN types that could be used, we discovered that the researchers from the CycleGAN\cite{CycleGAN2017}\cite{isola2017image} project had compiled their own Van Gogh dataset.
-	The CycleGAN Van Gogh dataset consisted of 400 pictures from WikiArt\cite{wikiartVanGogh}, which was nearly twice as many images as the 211 we had been able to gather from the Van Gogh Museum.
-	Additionally, the CycleGAN researchers had compiled a similar dataset of 1072 paintings by Claude Monet, also from WikiArt.
-	We then began training a new model on the CycleGAN Van Gogh dataset.
-	\subsubsection{Importance of Work}
-	Since we knew from previous research that performance of neural networks generally improves with larger training data, these new datasets represented an unexpected opportunity to improve the quality of our results.
-	\subsubsection{Problems Encountered}
-	Unfortunately, even with this larger dataset, the GAN did not produce clear images.
-	The color palettes of the generated images were reminiscent of a Van Gogh painting, but no clearly defined features were present.
-	Any apparent features were extremely vague, and concerns about the Rorschach effect were raised.
+		\subsection{Week 10}
+			\subsubsection{Work Completed}
+				After speaking with our advisor this week, we decided to change focus once again.
+				Our current goal is to attempt to replicate the results of the other GANGogh project \cite{otherGanGogh}.
+				We are training a model on the dataset of landscape paintings that Jones and Bonafilia compiled from WikiArt.
+				This has so far been much more successful than previous attempts with other datasets.
+			\subsubsection{Importance of Work}
+				If we are able to reproduce the results of Jones and Bonafilia, it will further confirm that the problems we encountered with the Van Gogh datasets was due to their size.
+			\subsubsection{Problems Encountered}
+				At 15,000 images, the landscapes dataset is much larger than any of our previous datasets, with the sole exception of the MNIST dataset.
+				Despite reducing the size of the training images to 64 by 64 pixels, this dataset still takes between 5 and 15 minutes\footnote{Most epochs take 5 minutes, but occasionally one will take two or three times that long, presumably due to other applications running at the same time. This is, however, a much greater variance than has been observed with other datasets, even under the same conditions.} per epoch of training.
+				However, unlike previous time-consuming training attempts, this one appears to be making significant progress.
+				The small size of the images limits the amount of detail that can be shown, but after 400 epochs, the model is consistently producing convincing images.
 
-	Additionally, since the CycleGAN dataset was nearly twice as big as the Van Gogh Museum dataset, training times increased proportionally.
-	This meant that fewer epochs of training were able to be completed in the same amount of time.
+		\subsection{Weeks 11-12}
+			\subsubsection{Work Completed}
 
-	\subsection{Week 9}
-	\subsubsection{Work Completed}
-	At this point, we decided to try a somewhat different tactic.
-	We decided to switch to the Monet dataset, and test different ways of approaching the task in order to try to figure out which might work best.
-	Variables to be tested include the specific GAN being used, including both supervised and unsupervised GANs, and whether color or grayscale images would be used.
-	\subsubsection{Importance of Work}
-	This approach allows us to test a number of possible methods without fully committing to any of them, instead of spending all of our resources on a single variation and hoping for it to work.
-	Additionally, we discovered that another, similar project had been attempted in the past\cite{otherGanGogh}, and that those researchers had encountered the same performance issues as us.
-	This lends further credibility to our belief that the size of the Van Gogh datasets was simply too small for the GAN to learn from.
-	\subsubsection{Problems Encountered}
-	As previously noted, increasing the size of the dataset increases the time required to train the model.
-	The Van Gogh Museum dataset took about 35 seconds per epoch, and the CycleGAN Van Gogh dataset took about 70.
-	However, the Monet dataset takes nearly two and a half minutes per epoch, which severely limits the number of epochs that can be completed.
+			\subsubsection{Importance of Work}
 
-	\subsection{Week 10}
-	\subsubsection{Work Completed}
-	After speaking with our advisor this week, we decided to change focus once again.
-	Our current goal is to attempt to replicate the results of the other GANGogh project \cite{otherGanGogh}.
-	We are training a model on the dataset of landscape paintings that Jones and Bonafilia compiled from WikiArt.
-	This has so far been much more successful than previous attempts with other datasets.
-	\subsubsection{Importance of Work}
-	If we are able to reproduce the results of Jones and Bonafilia, it will further confirm that the problems we encountered with the Van Gogh datasets was due to their size.
-	\subsubsection{Problems Encountered}
-	At 15,000 images, the landscapes dataset is much larger than any of our previous datasets, with the sole exception of the MNIST dataset.
-	Despite reducing the size of the training images to 64 by 64 pixels, this dataset still takes between 5 and 15 minutes\footnote{Most epochs take 5 minutes, but occasionally one will take two or three times that long, presumably due to other applications running at the same time. This is, however, a much greater variance than has been observed with other datasets, even under the same conditions.} per epoch of training.
-	However, unlike previous time-consuming training attempts, this one appears to be making significant progress.
-	The small size of the images limits the amount of detail that can be shown, but after 300 epochs, the model is consistently producing convincing images.
+			\subsubsection{Problems Encountered}
+
 \bibliographystyle{IEEEtran}
 \bibliography{van_gogh_bib}
 \nocite{*}
