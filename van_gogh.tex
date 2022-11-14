@@ -41,14 +41,60 @@
 		Functionally, the block creates an ImageFolder object in memory from the directory provided.
 		The images are scaled to the specified size, normalized, and, if specified, converted to grayscale.
 
-		The fourth, fifth, sixth, and seventh blocks are all adapted from the TorchGAN tutorial.
+		The fourth, fifth, sixth, seventh, and ninth blocks are all adapted from the TorchGAN tutorial.
 
+		The eighth and tenth blocks allow the user to continue training a previously-created model.
 
 	\section{How to Use Our Code}
+		If no other instructions are provided for a block, it can be run without any changes.
+
+		If you are running our code on Colab, be sure to either run the first block or manually install TorchGAN, as Colab doesn't have it installed by default.
+
+		Before running the third block of code, you will need to change some settings.
+		First, choose the size of the images.
+		This number must be an exact power of 2, and no smaller than 16.
+		Larger values have the potential to create more detailed images, but will increase the time it takes to train.
+		Second, if the images you are using are in black and white, set the grayscale variable to "True".
+		Finally, specify the folder that the images are in.
+		Due to the way that Torch's code works, you will have to specify the folder that contains the folder you want.
+		This may require making a new folder and moving your folder into it.
+
+		Before running the eighth block, you can choose to override the number of epochs that the model will train for.
+		More epochs will take longer, but allow the model to become more refined.
+		You can always resume training from a saved model later on.
+
+		The ninth block should only be used if you are creating a brand new model.
+		To resume training a previous model, use the tenth block.
+
+		The tenth block can be used to continue training.
+		In the first line of the block, specify the path to an existing model.
+		The default value is the location that the notebook uses to save checkpoints.
+		It should always be the most recent model, as long as the number of epochs was divisible by five.
+		If you are running the notebook on Colab, you will need to manually save and upload your .model files, as Colab clears user data between sessions.
 
 	\section{Generation of Results}
 		\subsection{Parameters Used}
-
+			The primary parameter which we manipulated was the training dataset.
+			The datasets that we used were as follows:
+			\begin{enumerate}
+				\item The MNIST dataset (60,000 images)
+				\item The images that we collected from the Van Gogh Museum (211 images)
+				\item The Van Gogh images collected by the CycleGAN researchers (400 images)
+				\item The Monet images collected by the CycleGAN researchers (1,000 images)
+				\item The Monet images collected by the CycleGAN researchers, converted to grayscale (1,000 images)
+				\item The landscape images collected by Jones and Bonafilia\cite{otherGanGogh} (15,000 images)
+			\end{enumerate}
+			Another parameter was the resolution of the images.
+			The order of the values in the following list correspond to the order of the datasets listed above.
+			\begin{enumerate}
+				\item 32 by 32 pixels
+				\item 256 by 256 pixels
+				\item 256 by 256 pixels
+				\item 256 by 256 pixels
+				\item 256 by 256 pixels
+				\item both 64 by 64 pixels and 128 by 128 pixels
+			\end{enumerate}
+			All other parameters remained constant between models.
 		\subsection{Results}
 
 	\section{Conclusion}
@@ -132,10 +178,17 @@
 
 		\subsection{Weeks 11-12}
 			\subsubsection{Work Completed}
+				After successfully reproducing the results of Jones and Bonafilia at a resolution of 64 by 64 pixels, we attempted the same task, but at a resolution of 128 by 128 pixels.
 
 			\subsubsection{Importance of Work}
+				While the 64 by 64 images were convincingly similar to the original images resized to that resolution, the small size limits the amount of detail able to be shown.
+				The ability to generate similarly convincing, larger images confirms that the GAN is actually learning the patterns correctly.
 
 			\subsubsection{Problems Encountered}
+				As expected, increasing the resolution increased the length of each epoch of training.
+				At 128 by 128 pixels, each epoch takes 10 to 20 minutes.
+				Additionally, despite our success with the smaller resolution at 400 epochs, the same number of epochs have not produced the same level of results with this model.
+
 
 \bibliographystyle{IEEEtran}
 \bibliography{van_gogh_bib}
