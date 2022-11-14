@@ -23,12 +23,28 @@
 			Towards this purpose, we have collected 211 images from the Van Gogh Museum's website for use in training.
 			Furthermore, we hope to create a tool that others can use to easily train their own GANs on their own data.
 
-	\section{Resources Created}
+	\section{How We Approached Our Goal}
 		To accomplish our goals, we assembled a Jupyter notebook that trains a DCGAN on user-specified data.
 		Large parts of our code come from the TorchGAN\cite{pal2019torchgan} project's tutorial examples.
 
+		The first code block checks whether the environment in which the notebook is running has TorchGAN installed, and installs it if missing.
+		This block is primarily included for interoperability with Google Colab, which does not have TorchGAN installed by default.
+		The following block contains all of the import statements required for the rest of the code.
 
-	\section{Development Process}
+		The third block uses a class from the TorchVision package of Torch to set up the dataset that the GAN will be training on.
+		Figuring out how to write the code for this block was quite time-consuming, and included multiple false starts.
+		Our first attempt involved reading the files and converting them to NumPy arrays, then saving each array to a file.
+		However, we then realized that this solution wasn't actually compatible with the TorchGAN code, so we started going through the documentation of the built-in datasets to figure out what we should subclass.
+		Once we found the appropriate class, we began writing a custom dataset class that would allow the user to specify a directory, and from that, load all of the images in that directory as a dataset.
+		We then learned that this was almost exactly the same usage and behavior as the already-existing ImageFolder class in the TorchVision package, so we switched to using that instead.
+
+		Functionally, the block creates an ImageFolder object in memory from the directory provided.
+		The images are scaled to the specified size, normalized, and, if specified, converted to grayscale.
+
+		The fourth, fifth, sixth, and seventh blocks are all adapted from the TorchGAN tutorial.
+
+
+	\section{How to Use Our Code}
 
 	\section{Generation of Results}
 		\subsection{Parameters Used}
@@ -46,6 +62,7 @@
 \appendix
 	\section{Appendix: Weekly Progress}
 		\subsection{Weeks 1-3}
+		\label{subsec:weekly:1-3}
 			\subsubsection{Work Completed}
 				During this time period, we tested sample code from the TorchGAN\cite{pal2019torchgan} project using data from the MNIST\cite{lecun2010mnist} dataset.
 				We also began writing code to provide an interface for the TorchGAN code to read from the training data we had previously collected from the Van Gogh Museum (e.g., \cite{001}, \cite{002}, \cite{003}).
