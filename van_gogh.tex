@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{IEEEtrantools}
+\usepackage{float}
 \author{Alan Freeman}
 \title{GAN Gogh: Use of a GAN to Imitate the Style of Vincent Van Gogh}
 \begin{document}
@@ -96,13 +97,59 @@
 			\end{enumerate}
 			All other parameters remained constant between models.
 		\subsection{Results}
+			\subsubsection{Van Gogh Museum Dataset}
+				This dataset was our first attempt at our goal.
+				For the first thousand or so epochs of training, the model produced nothing but static, with occasional blue patches.\footnote{Each figure is composed of a grid of generated samples.}
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch537_generator}
+					\caption[Van Gogh Museum dataset, epoch 537]{Generated images from epoch 537. Note that the images are mostly random noise, with occasional splotches of color.}
+					\label{fig:vgm:epoch537generator}
+				\end{figure}
+
+				This continues until around epoch 1087, at which point a grid begins to form.
+				By epoch 1127, the grid is clearly visible.
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1127_generator}
+					\caption[Van Gogh Museum dataset, epoch 1127]{Generated images from epoch 1127. Note the grid within the static of each image.}
+					\label{fig:vgm:epoch1127generator}
+				\end{figure}
+
+				By epoch 1254, the grid has become a series of vertical lines.
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1254_generator}
+					\caption[Van Gogh Museum dataset, epoch 1254]{Generated images from epoch 1254. Note the vertical lines that have formed.}
+					\label{fig:vgm:epoch1254generator}
+				\end{figure}
+
+				By epoch 1406, the grid and lines are gone, and we are left with solid color with black borders.
+				It is worth noting that the black borders are due to a choice we made in preparing the images for training.
+				In order to prevent image distortion due to stretching, we padded each image in this dataset, and this dataset alone, with extra pixels so that the width and height of each image was equal.
+				That way, the scaling done would affect both dimensions equally, and therefore preserve the image.
+				Unfortunately, this did not have the intended effect.
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1406_generator}
+					\caption[Van Gogh Museum dataset, epoch 1406]{Generated images from epoch 1406. Note the black bars.}
+					\label{fig:vgm:epoch1406generator}
+				\end{figure}
+
+				By epoch 1531, a texture appears to form on the images.
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1531_generator}
+					\caption[Van Gogh Museum dataset, epoch 1531]{Generated images from epoch 1531. Note the texture in the images.}
+					\label{fig:vgm:epoch1531generator}
+				\end{figure}
 
 	\section{Conclusion}
 		Our research has emphasized a key detail in machine learning: you need a very large dataset to get good results.
 		This was shown by our models failing to converge with smaller dataset sizes.
-		The datasets with 211, 400, and even 1000 images all failed to converge.
+		The datasets with 211, 400, and even 1,000 images all failed to converge.
 		The model with the smallest dataset that achieved convincing results was trained on 15,000 images.
-		Future research may include determining the threshold more precisely, as there is still a large gap between 1000 and 15,000.
+		Future research may include determining the threshold more precisely, as there is still a large gap between 1,000 and 15,000.
 		Due to this inherent limiting requirement, it seems that our initial goal of computationally determining what characteristics define Van Gogh's art was likely unattainable.
 
 \appendix
@@ -182,7 +229,7 @@
 
 			\subsubsection{Importance of Work}
 				While the 64 by 64 images were convincingly similar to the original images resized to that resolution, the small size limits the amount of detail able to be shown.
-				The ability to generate similarly convincing, larger images confirms that the GAN is actually learning the patterns correctly.
+				The ability to generate similarly convincing, larger images confirms that the GAN is actually learning the patterns that we want it to be learning.
 
 			\subsubsection{Problems Encountered}
 				As expected, increasing the resolution increased the length of each epoch of training.
