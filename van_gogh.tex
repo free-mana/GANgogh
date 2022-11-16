@@ -10,21 +10,32 @@
 \author{Alan Freeman}
 \title{GAN Gogh: Use of a GAN to Imitate the Style of Vincent Van Gogh}
 \begin{document}
+% TODO: citations go inside periods.  I think.  Look it up.
+% data.gov uses dataset as a single word, so we will adhere to that for this document
 	\maketitle
 	\section{Introduction}
 		\subsection{Background}
-			A GAN (Generative Adversarial Network) is a type of artificial intelligence composed of two neural networks, first introduced by Goodfellow et al in 2014.\cite{NIPS2014_5ca3e9b1}
-			One, the generator, tries to generate images that resemble the training data.
-			The other, the discriminator, attempts to determine whether any given image is from the original dataset.
+			A GAN (Generative Adversarial Network) is a type of artificial intelligence composed of two neural networks, first introduced by Goodfellow et al in 2014 \cite{NIPS2014_5ca3e9b1}.
+			% It takes its name from the fact that it uses two networks in direct opposition to each other.
+			One, refered to as the generator, tries to generate images that resemble the training data.
+			The other, called the discriminator, attempts to determine whether any given image is from the original dataset.
+			
+			%why does it get better at detecting fakes and how does generator improve
+			% you can exand here .  More detail is better.
 			As the discriminator gets better at detecting fakes, the generator has to improve the quality of its images in order to go undetected.
 			This feedback loop produces images that become progressively more similar to the original input.
 			The specific architecture of GAN that we used in this research was a Deep Convolutional GAN, or DCGAN, introduced by Radford et al in 2015.\cite{radford2015unsupervised}
 		\subsection{Motivation}
 			By training our GAN on images of paintings by Vincent Van Gogh, we hope to learn what specific features make his artwork so immediately recognizable.
-			Towards this purpose, we have collected 211 images from the Van Gogh Museum's website for use in training.
+			Towards this purpose, we collected 211 images from the Van Gogh Museum's website for use in training.
 			Furthermore, we hope to create a tool that others can use to easily train their own GANs on their own data.
 
 	\section{How We Approached Our Goal}
+	
+	% TODO: Too abstract or not abstract enough.  
+	% Either bring in the code blocks you are referencing with minted or listing package
+	% or remove references from your text of specific code blocks.
+	
 		To accomplish our goals, we assembled a Jupyter notebook that trains a DCGAN on user-specified data.
 		Large parts of our code come from the TorchGAN\cite{pal2019torchgan} project's tutorial examples.
 
@@ -97,6 +108,7 @@
 			\end{enumerate}
 			All other parameters remained constant between models.
 		\subsection{Results}
+		%TODO: if possible expand on captions
 			\subsubsection{Van Gogh Museum Dataset}
 				This dataset was our first attempt at our goal.
 				For the first thousand or so epochs of training, the model produced nothing but static, with occasional blue patches.\footnote{Each figure is composed of a grid of generated samples.}
@@ -186,6 +198,11 @@
 		Our research has emphasized a key detail in machine learning: you need a very large dataset to get good results.
 		This was shown by our models failing to converge with smaller dataset sizes.
 		The datasets with 211, 400, and even 1,000 images all failed to converge.
+		% failed to converge upone what
+		% because they had converged to certain choices, such as color selection/ pallete
+		% or horizonal deliniation (eg there's a surface (land/sea) and a sky) for the relevant data set
+		
+		
 		The model with the smallest dataset that achieved convincing results was trained on 15,000 images.
 		Future research may include determining the threshold more precisely, as there is still a large gap between 1,000 and 15,000.
 		Due to this inherent limiting requirement, it seems that our initial goal of computationally determining what characteristics define Van Gogh's art was likely unattainable.
