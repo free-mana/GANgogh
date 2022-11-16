@@ -100,49 +100,87 @@
 			\subsubsection{Van Gogh Museum Dataset}
 				This dataset was our first attempt at our goal.
 				For the first thousand or so epochs of training, the model produced nothing but static, with occasional blue patches.\footnote{Each figure is composed of a grid of generated samples.}
+				See figure \ref{fig:vgm:epoch537generator}.
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch537_generator}
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch537_generator}
 					\caption[Van Gogh Museum dataset, epoch 537]{Generated images from epoch 537. Note that the images are mostly random noise, with occasional splotches of color.}
 					\label{fig:vgm:epoch537generator}
 				\end{figure}
 
 				This continues until around epoch 1087, at which point a grid begins to form.
 				By epoch 1127, the grid is clearly visible.
+				See figure \ref{fig:vgm:epoch1127generator}.
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1127_generator}
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1127_generator}
 					\caption[Van Gogh Museum dataset, epoch 1127]{Generated images from epoch 1127. Note the grid within the static of each image.}
 					\label{fig:vgm:epoch1127generator}
 				\end{figure}
 
 				By epoch 1254, the grid has become a series of vertical lines.
+				See figure \ref{fig:vgm:epoch1254generator}.
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1254_generator}
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1254_generator}
 					\caption[Van Gogh Museum dataset, epoch 1254]{Generated images from epoch 1254. Note the vertical lines that have formed.}
 					\label{fig:vgm:epoch1254generator}
 				\end{figure}
 
 				By epoch 1406, the grid and lines are gone, and we are left with solid color with black borders.
+				See figure \ref{fig:vgm:epoch1406generator}.
 				It is worth noting that the black borders are due to a choice we made in preparing the images for training.
 				In order to prevent image distortion due to stretching, we padded each image in this dataset, and this dataset alone, with extra pixels so that the width and height of each image was equal.
-				That way, the scaling done would affect both dimensions equally, and therefore preserve the image.
+				That way, the scaling done would affect both dimensions equally, and therefore (in theory) preserve the image.
 				Unfortunately, this did not have the intended effect.
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1406_generator}
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1406_generator}
 					\caption[Van Gogh Museum dataset, epoch 1406]{Generated images from epoch 1406. Note the black bars.}
 					\label{fig:vgm:epoch1406generator}
 				\end{figure}
 
 				By epoch 1531, a texture appears to form on the images.
+				See figure \ref{fig:vgm:epoch1531generator}.
 				\begin{figure}
 					\centering
-					\includegraphics[width=0.7\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1531_generator}
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1531_generator}
 					\caption[Van Gogh Museum dataset, epoch 1531]{Generated images from epoch 1531. Note the texture in the images.}
 					\label{fig:vgm:epoch1531generator}
 				\end{figure}
+
+				At epoch 1702, the black bars are becoming more clearly defined.
+				See figure \ref{fig:vgm:epoch1702generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1702_generator}
+					\caption[Van Gogh Museum dataset, epoch 1702]{Generated images from epoch 1702. Note that the black bars are becoming more defined.}
+					\label{fig:vgm:epoch1702generator}
+				\end{figure}
+
+				At this point progress stalls for a very long time.
+				It's not until around epoch 3241 that the model shows any clear progression, and even then the details are far from clearly defined.
+				See figure \ref{fig:vgm:epoch3241generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch3241_generator}
+					\caption[Van Gogh Museum dataset, epoch 3241]{Generated images from epoch 3241. Note the vague details forming within the images.}
+					\label{fig:vgm:epoch3241generator}
+				\end{figure}
+
+				After this point, progress stops.
+				Despite continuing to train the model for thousands of additional epochs, the model never achieves clearer details.
+				In fact, by the final epoch, image diversity has also greatly decreased, as seen in figure \ref{fig:vgm:epoch8000generator}.
+				This may suggest that the model is overfitting.
+				At the very least, it is unlikely that this model would have made any further progress if we had continued to train it.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch8000_generator}
+					\caption[Van Gogh Museum dataset, epoch 8000]{Generated images from epoch 8000. The model has made no real progress in achieving greater clarity compared to figure \ref{fig:vgm:epoch3241generator}, and the images have become much less diverse in content.}
+					\label{fig:vgm:epoch8000generator}
+				\end{figure}
+			\subsubsection{CycleGAN Van Gogh Dataset}
+
 
 	\section{Conclusion}
 		Our research has emphasized a key detail in machine learning: you need a very large dataset to get good results.
@@ -223,7 +261,7 @@
 				However, unlike previous time-consuming training attempts, this one appears to be making significant progress.
 				The small size of the images limits the amount of detail that can be shown, but after 400 epochs, the model is consistently producing convincing images.
 
-		\subsection{Weeks 11-12}
+		\subsection{Weeks 11-13}
 			\subsubsection{Work Completed}
 				After successfully reproducing the results of Jones and Bonafilia at a resolution of 64 by 64 pixels, we attempted the same task, but at a resolution of 128 by 128 pixels.
 
@@ -235,6 +273,7 @@
 				As expected, increasing the resolution increased the length of each epoch of training.
 				At 128 by 128 pixels, each epoch takes 10 to 20 minutes.
 				Additionally, despite our success with the smaller resolution at 400 epochs, the same number of epochs have not produced the same level of results with this model.
+				At 700 epochs, the model is able to produce some convincing images, but not nearly as consistently as the previous model.
 
 
 \bibliographystyle{IEEEtran}
