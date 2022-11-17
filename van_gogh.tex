@@ -7,9 +7,18 @@
 \usepackage{graphicx}
 \usepackage{IEEEtrantools}
 \usepackage{float}
+\usepackage[newfloat]{minted}
+\usepackage{caption}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code Block}
+\BeforeBeginEnvironment{minted}{\begin{tcolorbox}}%
+\AfterEndEnvironment{minted}{\end{tcolorbox}}%
 \author{Alan Freeman}
 \title{GAN Gogh: Use of a GAN to Imitate the Style of Vincent Van Gogh}
 \begin{document}
+	\setminted{breaklines, autogobble, tabsize=4, fontsize=\small}
 % TODO: citations go inside periods.  I think.  Look it up.
 % data.gov uses dataset as a single word, so we will adhere to that for this document
 % TODO: You are not submitting this for publication, therefore you can afford to be frank with your null results
@@ -19,53 +28,230 @@
 	\section{Introduction}
 		\subsection{Background}
 			A GAN (Generative Adversarial Network) is a type of artificial intelligence composed of two neural networks, first introduced by Goodfellow et al in 2014 \cite{NIPS2014_5ca3e9b1}.
-			% It takes its name from the fact that it uses two networks in direct opposition to each other.
-			One, refered to as the generator, tries to generate images that resemble the training data.
+			It takes its name from the fact that it uses two networks in direct opposition to each other.
+			One, referred to as the generator, tries to generate images that resemble the training data.
 			The other, called the discriminator, attempts to determine whether any given image is from the original dataset.
-			
+
 			%why does it get better at detecting fakes and how does generator improve
-			% you can exand here .  More detail is better.
+			% you can expand here.  More detail is better.
 			As the discriminator gets better at detecting fakes, the generator has to improve the quality of its images in order to go undetected.
 			This feedback loop produces images that become progressively more similar to the original input.
-			The specific architecture of GAN that we used in this research was a Deep Convolutional GAN, or DCGAN, introduced by Radford et al in 2015.\cite{radford2015unsupervised}
+			The specific architecture of GAN that we used in this research was a Deep Convolutional GAN, or DCGAN, introduced by Radford et al in 2015\cite{radford2015unsupervised}.
 		\subsection{Motivation}
 			By training our GAN on images of paintings by Vincent Van Gogh, we hope to learn what specific features make his artwork so immediately recognizable.
 			Towards this purpose, we collected 211 images from the Van Gogh Museum's website for use in training.
 			Furthermore, we hope to create a tool that others can use to easily train their own GANs on their own data.
 
 	\section{How We Approached Our Goal}
-	
-	% TODO: Too abstract or not abstract enough.  
-	% Either bring in the code blocks you are referencing with minted or listing package
-	% or remove references from your text of specific code blocks.
-	
 		To accomplish our goals, we assembled a Jupyter notebook that trains a DCGAN on user-specified data.
 		Large parts of our code come from the TorchGAN\cite{pal2019torchgan} project's tutorial examples.
-
-		The first code block checks whether the environment in which the notebook is running has TorchGAN installed, and installs it if missing.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				try:
+					import torchgan
+					print(f"Existing TorchGAN {torchgan.__version__} installation found")
+				except ImportError:
+					import subprocess
+					import sys
+					subprocess.check_call([sys.executable, "-m", "pip", "install", "torchgan"])
+					import torchgan
+					print(f"Installed TorchGAN {torchgan.__version__}")
+			\end{minted}
+			\label{code:block1}
+		\end{code}
+		Code block \ref{code:block1} checks whether the environment in which the notebook is running has TorchGAN installed, and installs it if missing.
 		This block is primarily included for interoperability with Google Colab, which does not have TorchGAN installed by default.
-		The following block contains all of the import statements required for the rest of the code.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				import torch
+				import torch.nn as nn
+				import torch.backends.cudnn
+				import torch.utils.data as tdata
+				from torch.optim import Adam
+				import torchvision
+				import torchvision.datasets as dsets
+				from torchvision.datasets import ImageFolder
+				import torchvision.transforms as transforms
 
-		The third block uses a class from the TorchVision package of Torch to set up the dataset that the GAN will be training on.
+				import numpy as np
+				import matplotlib.pyplot as plt
+
+				import torchgan
+				from torchgan.models import *
+				from torchgan.losses import *
+				from torchgan.trainer import Trainer
+			\end{minted}
+			\label{code:block2}
+		\end{code}
+		Code block \ref{code:block2} contains all of the import statements required for the rest of the code.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				size = 128
+				grayscale = False
+				folder = "./relative/path/to/images/"
+
+				if grayscale:
+					channels = 1
+					data = ImageFolder(
+						root=folder,
+						transform=transforms.Compose([
+							transforms.Resize((size, size)),
+							transforms.ToTensor(),
+							transforms.Grayscale(),
+							transforms.Normalize(mean=.5, std=.5)
+						])
+					)
+				else:
+					channels = 3
+					data = ImageFolder(
+						root=folder,
+						transform=transforms.Compose([
+							transforms.Resize((size, size)),
+							transforms.ToTensor(),
+							transforms.Normalize(mean=.5, std=.5)
+						])
+					)
+				print(len(data))
+			\end{minted}
+			\label{code:block3}
+		\end{code}
+		Code block \ref{code:block3} uses a class from the TorchVision package of Torch to set up the dataset that the GAN will be training on.
 		Figuring out how to write the code for this block was quite time-consuming, and included multiple false starts.
 		Our first attempt involved reading the files and converting them to NumPy arrays, then saving each array to a file.
 		However, we then realized that this solution wasn't actually compatible with the TorchGAN code, so we started going through the documentation of the built-in datasets to figure out what we should subclass.
 		Once we found the appropriate class, we began writing a custom dataset class that would allow the user to specify a directory, and from that, load all of the images in that directory as a dataset.
 		We then learned that this was almost exactly the same usage and behavior as the already-existing ImageFolder class in the TorchVision package, so we switched to using that instead.
+		It is regrettable that we spent time working on tools that were never used, but doing so allowed us to become more familiar with the internal structure of the package, which increased our understanding of how the code works.
 
 		Functionally, the block creates an ImageFolder object in memory from the directory provided.
 		The images are scaled to the specified size, normalized, and, if specified, converted to grayscale.
 
-		The fourth, fifth, sixth, seventh, and ninth blocks are all adapted from the TorchGAN tutorial.
+		Code blocks \ref{code:block4}, \ref{code:block5}, \ref{code:block6}, \ref{code:block7}, and \ref{code:block9} are all adapted from the TorchGAN tutorial.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				dataloader = tdata.DataLoader(data, batch_size=64, shuffle=True)
+			\end{minted}
+			\label{code:block4}
+		\end{code}
+		Code block \ref{code:block4} loads the object created in code block \ref{code:block3} into Torch's DataLoader class, which will be passed to the final Trainer object in either code block \ref{code:block9} or \ref{code:block10}, depending on use case.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				dcgan_network = {
+					"generator": {
+						"name": DCGANGenerator,
+						"args": {
+							"encoding_dims": 100,
+							"out_size": size,
+							"out_channels": channels,
+							"step_channels": 32,
+							"nonlinearity": nn.LeakyReLU(0.2),
+							"last_nonlinearity": nn.Tanh(),
+						},
+						"optimizer": {"name": Adam, "args": {"lr": 0.0001, "betas": (0.5, 0.999)}},
+					},
+					"discriminator": {
+						"name": DCGANDiscriminator,
+						"args": {
+							"in_size": size,
+							"in_channels": channels,
+							"step_channels": 32,
+							"nonlinearity": nn.LeakyReLU(0.2),
+							"last_nonlinearity": nn.LeakyReLU(0.2),
+						},
+						"optimizer": {"name": Adam, "args": {"lr": 0.0003, "betas": (0.5, 0.999)}},
+					},
+				}
+			\end{minted}
+			\label{code:block5}
+		\end{code}
+		Code block \ref{code:block5} constructs the objects that make up the DCGAN itself.
+		Values from code block \ref{code:block3} are used to configure the generator and discriminator objects so that they are compatible with the input images.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				minimax_losses = [MinimaxGeneratorLoss(), MinimaxDiscriminatorLoss()]
+				wgangp_losses = [
+				WassersteinGeneratorLoss(),
+				WassersteinDiscriminatorLoss(),
+				WassersteinGradientPenalty(),
+				]
+				lsgan_losses = [LeastSquaresGeneratorLoss(), LeastSquaresDiscriminatorLoss()]
+			\end{minted}
+			\label{code:block6}
+		\end{code}
+		Code block \ref{code:block6} sets up three potential objects for measuring the GAN's progress.
+		Only one is needed for any given model, but having multiple available allows the user to easily experiment with different configurations.
+		Due to time constraints, all of our training was done using the same set of losses.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				if torch.cuda.is_available():
+				device = torch.device("cuda:0")
+				# Use deterministic cudnn algorithms
+				torch.backends.cudnn.deterministic = True
+				epochs = 10
+				else:
+				device = torch.device("cpu")
+				epochs = 5
 
-		The eighth and tenth blocks allow the user to continue training a previously-created model.
+				print("Device: {}".format(device))
+				print("Epochs: {}".format(epochs))
+			\end{minted}
+			\label{code:block7}
+		\end{code}
+		Code block \ref{code:block7} detects what hardware is available for use in training.
+		It also sets a default value for number of epochs based on the available hardware.
+		If a device that uses NVIDIA's CUDA technology is available, that device is preferred.
+		Otherwise, the CPU is used.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				epochs = 700
 
+				trainer = Trainer(
+				dcgan_network,
+				lsgan_losses,
+				sample_size=64,
+				epochs=epochs,
+				device=device
+				)
+			\end{minted}
+			\label{code:block8}
+		\end{code}
+		Code block \ref{code:block8} constructs the Trainer object that trains the model.
+		This block will have to be re-run with a new epochs value each time the user wishes to continue training an existing model.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				trainer(dataloader)
+			\end{minted}
+			\label{code:block9}
+		\end{code}
+		Code block \ref{code:block9} performs the training from the beginning.
+		\begin{code}
+			\caption{}
+			\begin{minted}{python3}
+				model = "./model/gan4.model"
+
+				trainer.load_model(model)
+				trainer(dataloader)
+			\end{minted}
+			\label{code:block10}
+		\end{code}
+		Code block \ref{code:block10} loads in a previously-created model and then resumes training on it.
+		Due to the way that TorchGAN works, a new Trainer object is required to resume training, as each Trainer has a set number of epochs that it will train until.
+		If, for example, one were to load a model that had already been trained for 100 epochs into a Trainer set to train for 100 epochs, the Trainer would not perform any additional training, as the target number has already been reached.
 	\section{How to Use Our Code}
-		If no other instructions are provided for a block, it can be run without any changes.
+		If you are running our code on Colab, be sure to either run code block \ref{code:block1} or manually install TorchGAN, as Colab doesn't have it installed by default.
 
-		If you are running our code on Colab, be sure to either run the first block or manually install TorchGAN, as Colab doesn't have it installed by default.
+		Code block \ref{code:block2} can be run as-is.
 
-		Before running the third block of code, you will need to change some settings.
+		Code block \ref{code:block3} requires some configuration before being run.
 		First, choose the size of the images.
 		This number must be an exact power of 2, and no smaller than 16.
 		Larger values have the potential to create more detailed images, but will increase the time it takes to train.
@@ -74,14 +260,16 @@
 		Due to the way that Torch's code works, you will have to specify the folder that contains the folder you want.
 		This may require making a new folder and moving your folder into it.
 
-		Before running the eighth block, you can choose to override the number of epochs that the model will train for.
+		Code blocks \ref{code:block4}, \ref{code:block5}, \ref{code:block6}, and \ref{code:block7} can be run as-is.
+
+		Before running code block \ref{code:block8}, you may choose to override the number of epochs that the model will train for.
 		More epochs will take longer, but allow the model to become more refined.
 		You can always resume training from a saved model later on.
 
-		The ninth block should only be used if you are creating a brand new model.
-		To resume training a previous model, use the tenth block.
+		Code block \ref{code:block9} should only be used if you are creating a brand new model.
+		To resume training a previous model, use code block \ref{code:block10}.
 
-		The tenth block can be used to continue training.
+		Code block \ref{code:block10} is used to continue training.
 		In the first line of the block, specify the path to an existing model.
 		The default value is the location that the notebook uses to save checkpoints.
 		It should always be the most recent model, as long as the number of epochs was divisible by five.
@@ -204,8 +392,8 @@
 		% failed to converge upone what
 		% because they had converged to certain choices, such as color selection/ pallete
 		% or horizonal deliniation (eg there's a surface (land/sea) and a sky) for the relevant data set
-		
-		
+
+
 		The model with the smallest dataset that achieved convincing results was trained on 15,000 images.
 		Future research may include determining the threshold more precisely, as there is still a large gap between 1,000 and 15,000.
 		Due to this inherent limiting requirement, it seems that our initial goal of computationally determining what characteristics define Van Gogh's art was likely unattainable.
