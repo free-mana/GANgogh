@@ -300,14 +300,14 @@
 			All other parameters remained constant between models.
 		\subsection{Results}
 		%TODO: if possible expand on captions
-			\subsubsection{Van Gogh Museum Dataset}
+			\subsubsection{Dataset 1: Van Gogh Museum Dataset}
 				This dataset was our first attempt at our goal.
 				For the first thousand or so epochs of training, the model produced nothing but static, with occasional blue patches.\footnote{Each figure is composed of a grid of generated samples.}
 				See figure \ref{fig:vgm:epoch537generator}.
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch537_generator}
-					\caption[Van Gogh Museum dataset, epoch 537]{Generated images from epoch 537. Note that the images are mostly random noise, with occasional splotches of color.}
+					\caption[Van Gogh Museum dataset, epoch 537]{Generated images from epoch 537 of dataset 1. Note that the images are mostly random noise, with occasional splotches of color.}
 					\label{fig:vgm:epoch537generator}
 				\end{figure}
 
@@ -317,7 +317,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1127_generator}
-					\caption[Van Gogh Museum dataset, epoch 1127]{Generated images from epoch 1127. Note the grid within the static of each image.}
+					\caption[Van Gogh Museum dataset, epoch 1127]{Generated images from epoch 1127 of dataset 1. Note the grid within the static of each image.}
 					\label{fig:vgm:epoch1127generator}
 				\end{figure}
 
@@ -326,7 +326,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1254_generator}
-					\caption[Van Gogh Museum dataset, epoch 1254]{Generated images from epoch 1254. Note the vertical lines that have formed.}
+					\caption[Van Gogh Museum dataset, epoch 1254]{Generated images from epoch 1254 of dataset 1. Note the vertical lines that have formed.}
 					\label{fig:vgm:epoch1254generator}
 				\end{figure}
 
@@ -339,7 +339,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1406_generator}
-					\caption[Van Gogh Museum dataset, epoch 1406]{Generated images from epoch 1406. Note the black bars.}
+					\caption[Van Gogh Museum dataset, epoch 1406]{Generated images from epoch 1406 of dataset 1. Note the black bars.}
 					\label{fig:vgm:epoch1406generator}
 				\end{figure}
 
@@ -348,7 +348,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1531_generator}
-					\caption[Van Gogh Museum dataset, epoch 1531]{Generated images from epoch 1531. Note the texture in the images.}
+					\caption[Van Gogh Museum dataset, epoch 1531]{Generated images from epoch 1531 of dataset 1. Note the texture in the images.}
 					\label{fig:vgm:epoch1531generator}
 				\end{figure}
 
@@ -357,7 +357,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1702_generator}
-					\caption[Van Gogh Museum dataset, epoch 1702]{Generated images from epoch 1702. Note that the black bars are becoming more defined.}
+					\caption[Van Gogh Museum dataset, epoch 1702]{Generated images from epoch 1702 of dataset 1. Note that the black bars are becoming more defined.}
 					\label{fig:vgm:epoch1702generator}
 				\end{figure}
 
@@ -367,7 +367,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch3241_generator}
-					\caption[Van Gogh Museum dataset, epoch 3241]{Generated images from epoch 3241. Note the vague details forming within the images.}
+					\caption[Van Gogh Museum dataset, epoch 3241]{Generated images from epoch 3241 of dataset 1. Note the vague details forming within the images.}
 					\label{fig:vgm:epoch3241generator}
 				\end{figure}
 
@@ -379,10 +379,274 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch8000_generator}
-					\caption[Van Gogh Museum dataset, epoch 8000]{Generated images from epoch 8000. The model has made no real progress in achieving greater clarity compared to figure \ref{fig:vgm:epoch3241generator}, and the images have become much less diverse in content.}
+					\caption[Van Gogh Museum dataset, epoch 8000]{Generated images from epoch 8000 of dataset 1. The model has made no real progress in achieving greater clarity compared to figure \ref{fig:vgm:epoch3241generator}, and the images have become much less diverse in content.}
 					\label{fig:vgm:epoch8000generator}
 				\end{figure}
-			\subsubsection{CycleGAN Van Gogh Dataset}
+			\subsubsection{Dataset 2: CycleGAN Van Gogh Dataset}
+				This dataset has nearly twice as many images as the previous one.
+				Additionally, our method of padding the images to be square was not used; instead, the images were scaled to fit the required proportions.
+
+				Early in the training of this model, the generated images showed an interesting pattern: the model gradually shifted the overall color palette of the image.
+				As shown in figure \ref{fig:cgvg:composite-1-2-4-34-50-65-91-133-216}, the general color shifts from blue-purple, to red, to pale orange, to yellow, and finally to green.
+				This behavior was not observed in the previous model.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/composite-1-2-4-34-50-65-91-133-216}
+					\caption[Samples of images from early epochs]{Samples taken from early epochs. The overall image is a 3 by 3 grid, with each cell of this grid holding a 2 by 2 sample from a given epoch's image. The epochs shown, from left to right and top to bottom, are 1, 2, 4, 34, 50, 65, 91, 133, and 216, respectively.}
+					\label{fig:cgvg:composite-1-2-4-34-50-65-91-133-216}
+				\end{figure}
+
+				Around epoch 369, the color shifts back to yellow, with some of the images being divided into two sections in a different color, as shown in figure \ref{fig:cgvg:epoch0369generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0369_generator}
+					\caption{Epoch 369 of dataset 2.}
+					\label{fig:cgvg:epoch0369generator}
+				\end{figure}
+
+				Around epoch 398, the color becomes more golden.
+				The division is still present in some images, but appears to be less stark.
+				See figure \ref{fig:cgvg:epoch0398generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0398_generator}
+					\caption{Epoch 398 of dataset 2.}
+					\label{fig:cgvg:epoch0398generator}
+				\end{figure}
+
+				By epoch 412, the image has taken on two distinct tones: dark orange and light blue.
+				The images transition fairly smoothly between the colors, rather than the harsh divisions in figures \ref{fig:cgvg:epoch0369generator} and \ref{fig:cgvg:epoch0398generator}.
+				Each image has a primary color, but also contains elements of the other.
+				See figure \ref{fig:cgvg:epoch0412generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0412_generator}
+					\caption{Epoch 412 of dataset 2.}
+					\label{fig:cgvg:epoch0412generator}
+				\end{figure}
+
+				At epoch 429, the colors have switched to light orange and dark blue-green.
+				See figure \ref{fig:cgvg:epoch0429generator}
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0429_generator}
+					\caption{Epoch 429 of dataset 2.}
+					\label{fig:cgvg:epoch0429generator}
+				\end{figure}
+
+				At epoch 455, the colors have shifted to reddish-brown and green.
+				Additionally, the smooth transitions are mostly gone, with most images consisting almost entirely of one color or the other, as seen in figure \ref{fig:cgvg:epoch0455generator}
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0455_generator}
+					\caption{Epoch 455 of dataset 2.}
+					\label{fig:cgvg:epoch0455generator}
+				\end{figure}
+
+				At epoch 818, the images are once again monochromatic, but now show a range of values from light to dark.
+				Figure \ref{fig:cgvg:epoch0818generator} shows how the images range from light tan to dark brown.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0818_generator}
+					\caption{Epoch 818 of dataset 2.}
+					\label{fig:cgvg:epoch0818generator}
+				\end{figure}
+
+				At epoch 843, the contrast of the images is much more pronounced, with most images consisting of bright yellow and dark brown horizontal stripes, as shown in figure \ref{fig:cgvg:epoch0843generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0843_generator}
+					\caption{Epoch 843 of dataset 2.}
+					\label{fig:cgvg:epoch0843generator}
+				\end{figure}
+
+				At epoch 850, four colors are present: yellow, brown, light blue, and dark blue.
+				As figure \ref{fig:cgvg:epoch0850generator} shows, none of the images contain all four colors.
+				Most images contain two of the colors, but some have three.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0850_generator}
+					\caption{Epoch 850 of dataset 2.}
+					\label{fig:cgvg:epoch0850generator}
+				\end{figure}
+
+				At epoch 858, a combination of previously-seen characteristics is seen.
+				There is a sharp division of color like in epoch 369, multiple main colors like epoch 850, and some variation in value like epoch 818.
+				See figure \ref{fig:cgvg:epoch0858generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0858_generator}
+					\caption{Epoch 858 of dataset 2.}
+					\label{fig:cgvg:epoch0858generator}
+				\end{figure}
+
+				Epoch 863's images show a vibrant mix of multiple colors.
+				The colors transition even more smoothly than in epoch 412, and all images have at least two colors present.
+				See figure \ref{fig:cgvg:epoch0863generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0863_generator}
+					\caption{Epoch 863 of dataset 2.}
+					\label{fig:cgvg:epoch0863generator}
+				\end{figure}
+
+				Epoch 871 still has multiple colors, but the contrast has been increased like in epoch 843.
+				See figure \ref{fig:cgvg:epoch0871generator}
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0871_generator}
+					\caption{Epoch 871 of dataset 2.}
+					\label{fig:cgvg:epoch0871generator}
+				\end{figure}
+
+				At epoch 902, dark dots have formed on top of the images, as shown in figure \ref{fig:cgvg:epoch0902generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0902_generator}
+					\caption{Epoch 902 of dataset 2.}
+					\label{fig:cgvg:epoch0902generator}
+				\end{figure}
+
+				In epoch 911's images, the dots have had color added, giving the images a textured appearance.
+				There is still a tendency for the top quarter of the image to be sharply divided from the rest of the image, as figure \ref{fig:cgvg:epoch0911generator} shows.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0911_generator}
+					\caption{Epoch 911 of dataset 2.}
+					\label{fig:cgvg:epoch0911generator}
+				\end{figure}
+
+				By epoch 943, the texture has become more pronounced.
+				In figure \ref{fig:cgvg:epoch0943generator}, small squares are visible throughout the images.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0943_generator}
+					\caption{Epoch 943 of dataset 2.}
+					\label{fig:cgvg:epoch0943generator}
+				\end{figure}
+
+				By epoch 1084, the model is beginning to approximate some recognizable shapes, rather than just colors.
+				The details are extremely subjective, but some of the images in figure \ref{fig:cgvg:epoch1084generator} could be interpreted as portraits.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch1084_generator}
+					\caption{Epoch 1084 of dataset 2.}
+					\label{fig:cgvg:epoch1084generator}
+				\end{figure}
+
+				By epoch 1490, the details are somewhat more defined.
+				See figure \ref{fig:cgvg:epoch1490generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch1490_generator}
+					\caption{Epoch 1490 of dataset 2.}
+					\label{fig:cgvg:epoch1490generator}
+				\end{figure}
+
+				Around epoch 1990, the images seems to collapse back into static, with only occasional details visible, as shown in figure \ref{fig:cgvg:epoch1990generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch1990_generator}
+					\caption{Epoch 1990 of dataset 2.}
+					\label{fig:cgvg:epoch1990generator}
+				\end{figure}
+
+				By epoch 2051, many of the images are still static, but a few have redeveloped recognizable features.
+				In figure \ref{fig:cgvg:epoch2051generator}, the rightmost image in the second to last column in particular looks like a portrait to us.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2051_generator}
+					\caption{Epoch 2051 of dataset 2.}
+					\label{fig:cgvg:epoch2051generator}
+				\end{figure}
+
+				By epoch 2415, the details present have become even more defined, although many images are still mostly static.
+				Figure \ref{fig:cgvg:epoch2415generator} shows the progress at this point.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2415_generator}
+					\caption{Epoch 2415 of dataset 2.}
+					\label{fig:cgvg:epoch2415generator}
+				\end{figure}
+
+				However, around epoch 2457, the images collapse into noise again, this time even more completely.
+				As figure \ref{fig:cgvg:epoch2457generator} shows, there is no detail whatsoever in the images at this point.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2457_generator}
+					\caption{Epoch 2457 of dataset 2.}
+					\label{fig:cgvg:epoch2457generator}
+				\end{figure}
+
+				The model seems to almost start over from the beginning at this point, although it progresses much more quickly this time.
+				Epoch 2470, shown in figure \ref{fig:cgvg:epoch2470generator}, shows color development like epoch 369, and epoch 2482, shown in figure \ref{fig:cgvg:epoch2482generator} is somewhat reminiscent of figure \ref{fig:cgvg:epoch0818generator} from epoch 818.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2470_generator}
+					\caption{Epoch 2470 of dataset 2.}
+					\label{fig:cgvg:epoch2470generator}
+				\end{figure}
+
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2482_generator}
+					\caption{Epoch 2482 of dataset 2.}
+					\label{fig:cgvg:epoch2482generator}
+				\end{figure}
+
+				The model continues to make progress.
+				However, around epoch 2539, the generated images begin to look very uniform, as shown in figure \ref{fig:cgvg:epoch2539generator}.
+				This is reminiscent of the final epoch of the previous dataset, shown in figure \ref{fig:vgm:epoch8000generator}.
+				This lack of diversity does not bode well for this model.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2539_generator}
+					\caption{Epoch 2539 of dataset 2.}
+					\label{fig:cgvg:epoch2539generator}
+				\end{figure}
+
+				As shown in figure \ref{fig:cgvg:epoch2582generator}, at epoch 2582, the images have largely reverted to blocks of two colors.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2582_generator}
+					\caption{Epoch 2582 of dataset 2.}
+					\label{fig:cgvg:epoch2582generator}
+				\end{figure}
+
+				At epoch 2596, the images seem to collapse back into static again, as shown in figure \ref{fig:cgvg:epoch2596generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2596_generator}
+					\caption{Epoch 2596 of dataset 2.}
+					\label{fig:cgvg:epoch2596generator}
+				\end{figure}
+
+				Figure \ref{fig:cgvg:epoch2710generator} shows the model's progress in rebuilding the images at epoch 2710, although the same lack of variety is still evident.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2710_generator}
+					\caption{Epoch 2710 of dataset 2.}
+					\label{fig:cgvg:epoch2710generator}
+				\end{figure}
+
+				Figure \ref{fig:cgvg:epoch2750generator}, showing epoch 2750, appears to show a single foreground image against a variety of backgrounds.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2750_generator}
+					\caption{Epoch 2750 of dataset 2.}
+					\label{fig:cgvg:epoch2750generator}
+				\end{figure}
+
+				This cycle of collapsing into static and rebuilding continues, but the images never achieve clarity, and the diversity of the image content continues to decline.
+				It is unlikely that this model would have yielded the results we were looking for even if we had continued to train it.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch5000_generator}
+					\caption{Epoch 5000 of dataset 2, the last epoch of this dataset.}
+					\label{fig:cgvg:epoch5000generator}
+				\end{figure}
+			\subsubsection{Dataset 3: CycleGAN Monet Dataset}
+
 
 
 	\section{Conclusion}
