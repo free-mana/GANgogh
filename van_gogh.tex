@@ -300,14 +300,14 @@
 			All other parameters remained constant between models.
 		\subsection{Results}
 		%TODO: if possible expand on captions
-			\subsubsection{Dataset 1: Van Gogh Museum Dataset}
-				This dataset was our first attempt at our goal.
+			\subsubsection{Model 1: Van Gogh Museum Dataset}
+				This model was our first attempt at our goal.
 				For the first thousand or so epochs of training, the model produced nothing but static, with occasional blue patches.\footnote{Each figure is composed of a grid of generated samples.}
 				See figure \ref{fig:vgm:epoch537generator}.
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch537_generator}
-					\caption[Van Gogh Museum dataset, epoch 537]{Generated images from epoch 537 of dataset 1. Note that the images are mostly random noise, with occasional splotches of color.}
+					\caption[Van Gogh Museum dataset, epoch 537]{Generated images from epoch 537 of model 1. Note that the images are mostly random noise, with occasional splotches of color.}
 					\label{fig:vgm:epoch537generator}
 				\end{figure}
 
@@ -317,7 +317,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1127_generator}
-					\caption[Van Gogh Museum dataset, epoch 1127]{Generated images from epoch 1127 of dataset 1. Note the grid within the static of each image.}
+					\caption[Van Gogh Museum dataset, epoch 1127]{Generated images from epoch 1127 of model 1. Note the grid within the static of each image.}
 					\label{fig:vgm:epoch1127generator}
 				\end{figure}
 
@@ -326,7 +326,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1254_generator}
-					\caption[Van Gogh Museum dataset, epoch 1254]{Generated images from epoch 1254 of dataset 1. Note the vertical lines that have formed.}
+					\caption[Van Gogh Museum dataset, epoch 1254]{Generated images from epoch 1254 of model 1. Note the vertical lines that have formed.}
 					\label{fig:vgm:epoch1254generator}
 				\end{figure}
 
@@ -339,7 +339,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1406_generator}
-					\caption[Van Gogh Museum dataset, epoch 1406]{Generated images from epoch 1406 of dataset 1. Note the black bars.}
+					\caption[Van Gogh Museum dataset, epoch 1406]{Generated images from epoch 1406 of model 1. Note the black bars.}
 					\label{fig:vgm:epoch1406generator}
 				\end{figure}
 
@@ -348,7 +348,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1531_generator}
-					\caption[Van Gogh Museum dataset, epoch 1531]{Generated images from epoch 1531 of dataset 1. Note the texture in the images.}
+					\caption[Van Gogh Museum dataset, epoch 1531]{Generated images from epoch 1531 of model 1. Note the texture in the images.}
 					\label{fig:vgm:epoch1531generator}
 				\end{figure}
 
@@ -357,7 +357,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch1702_generator}
-					\caption[Van Gogh Museum dataset, epoch 1702]{Generated images from epoch 1702 of dataset 1. Note that the black bars are becoming more defined.}
+					\caption[Van Gogh Museum dataset, epoch 1702]{Generated images from epoch 1702 of model 1. Note that the black bars are becoming more defined.}
 					\label{fig:vgm:epoch1702generator}
 				\end{figure}
 
@@ -367,7 +367,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch3241_generator}
-					\caption[Van Gogh Museum dataset, epoch 3241]{Generated images from epoch 3241 of dataset 1. Note the vague details forming within the images.}
+					\caption[Van Gogh Museum dataset, epoch 3241]{Generated images from epoch 3241 of model 1. Note the vague details forming within the images.}
 					\label{fig:vgm:epoch3241generator}
 				\end{figure}
 
@@ -379,10 +379,10 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_2/images/epoch8000_generator}
-					\caption[Van Gogh Museum dataset, epoch 8000]{Generated images from epoch 8000 of dataset 1. The model has made no real progress in achieving greater clarity compared to figure \ref{fig:vgm:epoch3241generator}, and the images have become much less diverse in content.}
+					\caption[Van Gogh Museum dataset, epoch 8000]{Generated images from epoch 8000 of model 1. The model has made no real progress in achieving greater clarity compared to figure \ref{fig:vgm:epoch3241generator}, and the images have become much less diverse in content.}
 					\label{fig:vgm:epoch8000generator}
 				\end{figure}
-			\subsubsection{Dataset 2: CycleGAN Van Gogh Dataset}
+			\subsubsection{Model 2: CycleGAN Van Gogh Dataset}
 				This dataset has nearly twice as many images as the previous one.
 				Additionally, our method of padding the images to be square was not used; instead, the images were scaled to fit the required proportions.
 
@@ -400,7 +400,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0369_generator}
-					\caption{Epoch 369 of dataset 2.}
+					\caption{Epoch 369 of model 2.}
 					\label{fig:cgvg:epoch0369generator}
 				\end{figure}
 
@@ -410,7 +410,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0398_generator}
-					\caption{Epoch 398 of dataset 2.}
+					\caption{Epoch 398 of model 2.}
 					\label{fig:cgvg:epoch0398generator}
 				\end{figure}
 
@@ -421,7 +421,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0412_generator}
-					\caption{Epoch 412 of dataset 2.}
+					\caption{Epoch 412 of model 2.}
 					\label{fig:cgvg:epoch0412generator}
 				\end{figure}
 
@@ -430,7 +430,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0429_generator}
-					\caption{Epoch 429 of dataset 2.}
+					\caption{Epoch 429 of model 2.}
 					\label{fig:cgvg:epoch0429generator}
 				\end{figure}
 
@@ -439,7 +439,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0455_generator}
-					\caption{Epoch 455 of dataset 2.}
+					\caption{Epoch 455 of model 2.}
 					\label{fig:cgvg:epoch0455generator}
 				\end{figure}
 
@@ -448,7 +448,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0818_generator}
-					\caption{Epoch 818 of dataset 2.}
+					\caption{Epoch 818 of model 2.}
 					\label{fig:cgvg:epoch0818generator}
 				\end{figure}
 
@@ -456,7 +456,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0843_generator}
-					\caption{Epoch 843 of dataset 2.}
+					\caption{Epoch 843 of model 2.}
 					\label{fig:cgvg:epoch0843generator}
 				\end{figure}
 
@@ -466,7 +466,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0850_generator}
-					\caption{Epoch 850 of dataset 2.}
+					\caption{Epoch 850 of model 2.}
 					\label{fig:cgvg:epoch0850generator}
 				\end{figure}
 
@@ -476,7 +476,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0858_generator}
-					\caption{Epoch 858 of dataset 2.}
+					\caption{Epoch 858 of model 2.}
 					\label{fig:cgvg:epoch0858generator}
 				\end{figure}
 
@@ -486,7 +486,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0863_generator}
-					\caption{Epoch 863 of dataset 2.}
+					\caption{Epoch 863 of model 2.}
 					\label{fig:cgvg:epoch0863generator}
 				\end{figure}
 
@@ -495,7 +495,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0871_generator}
-					\caption{Epoch 871 of dataset 2.}
+					\caption{Epoch 871 of model 2.}
 					\label{fig:cgvg:epoch0871generator}
 				\end{figure}
 
@@ -503,7 +503,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0902_generator}
-					\caption{Epoch 902 of dataset 2.}
+					\caption{Epoch 902 of model 2.}
 					\label{fig:cgvg:epoch0902generator}
 				\end{figure}
 
@@ -512,7 +512,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0911_generator}
-					\caption{Epoch 911 of dataset 2.}
+					\caption{Epoch 911 of model 2.}
 					\label{fig:cgvg:epoch0911generator}
 				\end{figure}
 
@@ -521,7 +521,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch0943_generator}
-					\caption{Epoch 943 of dataset 2.}
+					\caption{Epoch 943 of model 2.}
 					\label{fig:cgvg:epoch0943generator}
 				\end{figure}
 
@@ -530,7 +530,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch1084_generator}
-					\caption{Epoch 1084 of dataset 2.}
+					\caption{Epoch 1084 of model 2.}
 					\label{fig:cgvg:epoch1084generator}
 				\end{figure}
 
@@ -539,7 +539,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch1490_generator}
-					\caption{Epoch 1490 of dataset 2.}
+					\caption{Epoch 1490 of model 2.}
 					\label{fig:cgvg:epoch1490generator}
 				\end{figure}
 
@@ -547,7 +547,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch1990_generator}
-					\caption{Epoch 1990 of dataset 2.}
+					\caption{Epoch 1990 of model 2.}
 					\label{fig:cgvg:epoch1990generator}
 				\end{figure}
 
@@ -556,7 +556,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2051_generator}
-					\caption{Epoch 2051 of dataset 2.}
+					\caption{Epoch 2051 of model 2.}
 					\label{fig:cgvg:epoch2051generator}
 				\end{figure}
 
@@ -565,7 +565,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2415_generator}
-					\caption{Epoch 2415 of dataset 2.}
+					\caption{Epoch 2415 of model 2.}
 					\label{fig:cgvg:epoch2415generator}
 				\end{figure}
 
@@ -574,7 +574,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2457_generator}
-					\caption{Epoch 2457 of dataset 2.}
+					\caption{Epoch 2457 of model 2.}
 					\label{fig:cgvg:epoch2457generator}
 				\end{figure}
 
@@ -583,14 +583,14 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2470_generator}
-					\caption{Epoch 2470 of dataset 2.}
+					\caption{Epoch 2470 of model 2.}
 					\label{fig:cgvg:epoch2470generator}
 				\end{figure}
 
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2482_generator}
-					\caption{Epoch 2482 of dataset 2.}
+					\caption{Epoch 2482 of model 2.}
 					\label{fig:cgvg:epoch2482generator}
 				\end{figure}
 
@@ -601,7 +601,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2539_generator}
-					\caption{Epoch 2539 of dataset 2.}
+					\caption{Epoch 2539 of model 2.}
 					\label{fig:cgvg:epoch2539generator}
 				\end{figure}
 
@@ -609,7 +609,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2582_generator}
-					\caption{Epoch 2582 of dataset 2.}
+					\caption{Epoch 2582 of model 2.}
 					\label{fig:cgvg:epoch2582generator}
 				\end{figure}
 
@@ -617,7 +617,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2596_generator}
-					\caption{Epoch 2596 of dataset 2.}
+					\caption{Epoch 2596 of model 2.}
 					\label{fig:cgvg:epoch2596generator}
 				\end{figure}
 
@@ -625,7 +625,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2710_generator}
-					\caption{Epoch 2710 of dataset 2.}
+					\caption{Epoch 2710 of model 2.}
 					\label{fig:cgvg:epoch2710generator}
 				\end{figure}
 
@@ -633,7 +633,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch2750_generator}
-					\caption{Epoch 2750 of dataset 2.}
+					\caption{Epoch 2750 of model 2.}
 					\label{fig:cgvg:epoch2750generator}
 				\end{figure}
 
@@ -642,11 +642,151 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{past_attempts/van_gogh/DCGAN_3/images/epoch5000_generator}
-					\caption{Epoch 5000 of dataset 2, the last epoch of this dataset.}
+					\caption{Epoch 5000 of model 2, the last epoch that this model was trained to.}
 					\label{fig:cgvg:epoch5000generator}
 				\end{figure}
-			\subsubsection{Dataset 3: CycleGAN Monet Dataset}
+			\subsubsection{Model 3: CycleGAN Monet Dataset}
+				This model showed the same color-cycling behavior in the early epochs as model 2.
+				For brevity, these images have been omitted.
 
+				The color-cycling finishes around epoch 258, at which point the model starts testing multiple colors.
+				This is consistent with the behavior displayed by model 2.
+				At epoch 285, the model produces variations of two colors, with smooth transitions between.
+				Compare figures \ref{fig:cgm:epoch285generator} and \ref{fig:cgm:epoch301generator} with figures \ref{fig:cgvg:epoch0412generator} and \ref{fig:cgvg:epoch2582generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch285_generator}
+					\caption{Epoch 285 of model 3}
+					\label{fig:cgm:epoch285generator}
+				\end{figure}
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch301_generator}
+					\caption{Epoch 301 of model 3}
+					\label{fig:cgm:epoch301generator}
+				\end{figure}
+
+				At epoch 315, some horizontal divisions can be seen beginning to form.
+				Although model 2 showed this behavior, it always put the division in the same place; in figure \ref{fig:cgm:epoch315generator} the divisions can be seen in at least two different positions.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch315_generator}
+					\caption[]{Epoch 315 of model 3}
+					\label{fig:cgm:epoch315generator}
+				\end{figure}
+
+				At epoch 328, a texture is beginning to form on the images.
+				This is once again consistent with model 2's development, although it is appearing after significantly fewer epochs.
+				Compare figure \ref{fig:cgm:epoch328generator} with figure \ref{fig:cgvg:epoch0911generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch328_generator}
+					\caption[]{Epoch 328 of model 3}
+					\label{fig:cgm:epoch328generator}
+				\end{figure}
+
+				By epoch 354, the texture has developed further, possibly even including diagonal divisions.
+				Compare figure \ref{fig:cgm:epoch354generator} with figure \ref{fig:cgvg:epoch0943generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch354_generator}
+					\caption[]{Epoch 354 of model 3}
+					\label{fig:cgm:epoch354generator}
+				\end{figure}
+
+				At epoch 369, some preliminary details are beginning to form.
+				Some of the generated images in figure \ref{fig:cgm:epoch369generator} resemble skyscapes, and others resemble landscapes.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch369_generator}
+					\caption[]{Epoch 369 of model 3}
+					\label{fig:cgm:epoch369generator}
+				\end{figure}
+
+				At epoch 393, the texture is fading, and details are becoming somewhat more clear.
+				Figure \ref{fig:cgm:epoch393generator} shows multiple different types of painting developing.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch393_generator}
+					\caption[]{Epoch 393 of model 3}
+					\label{fig:cgm:epoch393generator}
+				\end{figure}
+
+				At epoch 411, some texture is reappearing.
+				More color variation is visible in the images that are primarily green.
+				See figure \ref{fig:cgm:epoch411generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch411_generator}
+					\caption[]{Epoch 411 of model 3}
+					\label{fig:cgm:epoch411generator}
+				\end{figure}
+
+				At epoch 439, the texture is receding again, and some of the seascape-like images are quite good.
+				See figure \ref{fig:cgm:epoch439generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch439_generator}
+					\caption[]{Epoch 439 of model 3}
+					\label{fig:cgm:epoch439generator}
+				\end{figure}
+
+				Epoch 468, shown in figure \ref{fig:cgm:epoch468generator}, has once again formed a texture.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch468_generator}
+					\caption[]{Epoch 468 of model 3}
+					\label{fig:cgm:epoch468generator}
+				\end{figure}
+
+				The images from epoch 483, shown in figure \ref{fig:cgm:epoch483generator}, have once again become less textured.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch483_generator}
+					\caption[]{Epoch 483 of model 3}
+					\label{fig:cgm:epoch483generator}
+				\end{figure}
+
+				Epochs 492 and 498 both produce some decent images.
+				Although this model was trained through epoch 500, it is likely that one of these two epochs produced the best images.
+				Compare figures \ref{fig:cgm:epoch492generator} and \ref{fig:cgm:epoch498generator}.
+				This model was somewhat successful.
+				It may have continued to improve if we had continued training, but at this point in the project we had moved away from attempting to train a single model for as long as possible.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch492_generator}
+					\caption[]{Epoch 492 of model 3}
+					\label{fig:cgm:epoch492generator}
+				\end{figure}
+
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/images/epoch498_generator}
+					\caption[]{Epoch 498 of model 3}
+					\label{fig:cgm:epoch498generator}
+				\end{figure}
+
+				We also trained a model on the Monet dataset converted to grayscale in the hope that fewer color channels may simplify the calculations and therefore speed up the training, but this hypothesis turned out to be false.
+
+				Figure \ref{fig:cgm:gray:epoch500generator} shows the end result of that model's training.
+				As can be seen from the images, virtually no progress was made, despite training for the same number of epochs as model 3.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_2/images/epoch500_generator}
+					\caption{Epoch 500 of a model trained on a grayscale version of the Monet dataset.}
+					\label{fig:cgm:gray:epoch500generator}
+				\end{figure}
+
+				For comparison, figure \ref{fig:cgm:epoch498grayscale} is the image from figure \ref{fig:cgm:epoch498generator}, converted to grayscale.
+				This is what we were expecting figure \ref{fig:cgm:gray:epoch500generator} to look like.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/monet/DCGAN_1/epoch498grayscale}
+					\caption{Figure \ref{fig:cgm:epoch498generator}, converted to grayscale. This is what we had expected figure \ref{fig:cgm:gray:epoch500generator} to look like.}
+					\label{fig:cgm:epoch498grayscale}
+				\end{figure}
+
+			\subsubsection{Model 4: WikiArt Images, 64 pixels}
 
 
 	\section{Conclusion}
