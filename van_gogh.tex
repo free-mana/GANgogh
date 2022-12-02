@@ -787,7 +787,314 @@
 				\end{figure}
 
 			\subsubsection{Model 4: WikiArt Images, 64 pixels}
+				This model made remarkable progress very quickly.
+				It spends a few epochs trying random colors (see figure \ref{fig:wa64:epoch004generator}), but quickly progresses.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch004_generator}
+					\caption{Epoch 4 of model 4.}
+					\label{fig:wa64:epoch004generator}
+				\end{figure}
 
+				By epoch 21 (figure \ref{fig:wa64:epoch021generator}), the model seems to have learned that the sky is a lighter color than the ground.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch021_generator}
+					\caption{Epoch 21 of model 4.}
+					\label{fig:wa64:epoch021generator}
+				\end{figure}
+
+				By epoch 39 (figure \ref{fig:wa64:epoch039generator}), the sky and ground are very clearly defined, and objects are beginning to form in the midground and background of the image.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch039_generator}
+					\caption{Epoch 39 of model 4.}
+					\label{fig:wa64:epoch039generator}
+				\end{figure}
+
+				At epoch 50, many images have static, but details are developing.
+				See figure \ref{fig:wa64:epoch050generator}
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch050_generator}
+					\caption{Epoch 50 of model 4.}
+					\label{fig:wa64:epoch050generator}
+				\end{figure}
+
+				At epoch 76, the static is receding, and details are becoming clearer (figure \ref{fig:wa64:epoch076generator}).
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch076_generator}
+					\caption{Epoch 76 of model 4.}
+					\label{fig:wa64:epoch076generator}
+				\end{figure}
+
+				At epoch 99, the static has returned, but fine details are continuing to develop.
+				See figure \ref{fig:wa64:epoch099generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch099_generator}
+					\caption{Epoch 99 of model 4.}
+					\label{fig:wa64:epoch099generator}
+				\end{figure}
+
+				At epoch 125, the static appears to be somewhat smoothing out.
+				No image appears to be attempted twice; each generated image is unique.
+				See figure \ref{fig:wa64:epoch125generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch125_generator}
+					\caption{Epoch 125 of model 4.}
+					\label{fig:wa64:epoch125generator}
+				\end{figure}
+
+				At epoch 150, the static has come back in some images, but others are starting to look convincing.
+				The model appears to have learned how to mimic the sky portion of images more quickly than the ground portion.
+				See figure \ref{fig:wa64:epoch150generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch150_generator}
+					\caption{Epoch 150 of model 4.}
+					\label{fig:wa64:epoch150generator}
+				\end{figure}
+
+				Epoch 175 shows continued development of the images.
+				There is very little static, but not enough of the images are detailed enough to be convincing.
+				See figure \ref{fig:wa64:epoch175generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch175_generator}
+					\caption{Epoch 175 of model 4.}
+					\label{fig:wa64:epoch175generator}
+				\end{figure}
+
+				Epoch 201 has static returning, but otherwise appears to be making progress.
+				See figure \ref{fig:wa64:epoch201generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch201_generator}
+					\caption{Epoch 201 of model 4.}
+					\label{fig:wa64:epoch201generator}
+				\end{figure}
+
+				In epoch 225's images, the static has still not resolved itself compared to the last checkpoint.
+				See figure \ref{fig:wa64:epoch225generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch225_generator}
+					\caption{Epoch 225 of model 4.}
+					\label{fig:wa64:epoch225generator}
+				\end{figure}
+
+				The images from epoch 250 have less static than those from epoch 225.
+				Additionally, the image in the top row and third from the right in figure \ref{fig:wa64:epoch250generator} appears to us to have developed human figures.
+				This surprised us, as we were not aware that this dataset contained anything except for landscapes.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch250_generator}
+					\caption{Epoch 250 of model 4.}
+					\label{fig:wa64:epoch250generator}
+				\end{figure}
+
+				At epoch 275, the static has faded further, and some images are becoming very detailed.
+				See figure \ref{fig:wa64:epoch275generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch275_generator}
+					\caption{Epoch 275 of model 4.}
+					\label{fig:wa64:epoch275generator}
+				\end{figure}
+
+				Epoch 298 has almost no static present, and more of the images are becoming convincing.
+				See figure \ref{fig:wa64:epoch298generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch298_generator}
+					\caption{Epoch 298 of model 4.}
+					\label{fig:wa64:epoch298generator}
+				\end{figure}
+
+				At epoch 328, only a few images have any static at all, and nearly all of the rest look highly convincing.
+				See figure \ref{fig:wa64:epoch328generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch328_generator}
+					\caption{Epoch 328 of model 4.}
+					\label{fig:wa64:epoch328generator}
+				\end{figure}
+
+				Epoch 350's images have a similarly high level of detail to those from epoch 328, and the remaining static is starting to smooth out.
+				See figure \ref{fig:wa64:epoch350generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch350_generator}
+					\caption{Epoch 350 of model 4.}
+					\label{fig:wa64:epoch350generator}
+				\end{figure}
+
+				At epoch 375, virtually all of the images pass as originals.
+				There are still some with static, but they are greatly outnumbered.
+				See figure \ref{fig:wa64:epoch375generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch375_generator}
+					\caption{Epoch 375 of model 4.}
+					\label{fig:wa64:epoch375generator}
+				\end{figure}
+
+				Epoch 400's images do not show a distinct improvement over those from epoch 375.
+				It is possible that this model's performance has peaked.
+
+				We consider this model to have been successful.
+				This is consistent with the results seen by Jones and Bonafilia\cite{otherGanGogh}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/64x64/images/epoch400_generator}
+					\caption{Epoch 400 of model 4.}
+					\label{fig:wa64:epoch400generator}
+				\end{figure}
+			\subsubsection{Model 5: WikiArt Images, 128 pixels}
+				At epoch 24, model 5's process is comparable to model 4.
+				Compare figures \ref{fig:wa64:epoch021generator} and \ref{fig:wa128:epoch024generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch024_generator}
+					\caption{Epoch 24 of model 5.}
+					\label{fig:wa128:epoch024generator}
+				\end{figure}
+
+				Epoch 50's images are also approximately as expected.
+				See figure \ref{fig:wa128:epoch050generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch050_generator}
+					\caption{Epoch 50 of model 5.}
+					\label{fig:wa128:epoch050generator}
+				\end{figure}
+
+%				\begin{figure}
+%					\centering
+%					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch100_generator}
+%					\caption{Epoch 100 of model 5.}
+%					\label{fig:wa128:epoch100generator}
+%				\end{figure}
+%
+%				\begin{figure}
+%					\centering
+%					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch150_generator}
+%					\caption{Epoch 150 of model 5.}
+%					\label{fig:wa128:epoch150generator}
+%				\end{figure}
+
+				This continues generally as expected for a while.
+				However, by epoch 200, it becomes extremely clear that image diversity has plummeted.
+				Most of the images in figure \ref{fig:wa128:epoch200generator} are slight variations on the same four or so base images.
+				We are not sure what caused this to happen so early in the training.
+				Models 1 and 2 did not exhibit this behavior until making significantly more progress.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch200_generator}
+					\caption{Epoch 200 of model 5.}
+					\label{fig:wa128:epoch200generator}
+				\end{figure}
+
+				Epoch 250 has less static than epoch 200.
+				See figure \ref{fig:wa128:epoch250generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch250_generator}
+					\caption{Epoch 250 of model 5.}
+					\label{fig:wa128:epoch250generator}
+				\end{figure}
+
+				At epoch 300, vertical streaks have formed in most of the images.
+				This is a different kind of distortion than has been seen elsewhere.
+				See figure \ref{fig:wa128:epoch300generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch300_generator}
+					\caption{Epoch 300 of model 5.}
+					\label{fig:wa128:epoch300generator}
+				\end{figure}
+
+				By epoch 350, the streaks are gone, and many of the images are getting clearer, although image diversity is still low.
+				See figure \ref{fig:wa128:epoch350generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch350_generator}
+					\caption{Epoch 350 of model 5.}
+					\label{fig:wa128:epoch350generator}
+				\end{figure}
+
+				At epoch 400, there is very little static, but several of the images have developed a textured appearance.
+				See figure \ref{fig:wa128:epoch400generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch400_generator}
+					\caption{Epoch 400 of model 5.}
+					\label{fig:wa128:epoch400generator}
+				\end{figure}
+
+				Epoch 450's images are mostly as expected, however two of the images are surrounded by a white border.
+				We are not sure where this feature came from.
+				See figure \ref{fig:wa128:epoch450generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch450_generator}
+					\caption{Epoch 450 of model 5.}
+					\label{fig:wa128:epoch450generator}
+				\end{figure}
+
+				The images from epoch 500 are mostly decent quality, aside from the low variation.
+				See figure \ref{fig:wa128:epoch500generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch500_generator}
+					\caption{Epoch 500 of model 5.}
+					\label{fig:wa128:epoch500generator}
+				\end{figure}
+
+				However, by epoch 550, many of the images appear to have collapsed into static.
+				Additionally, image diversity is even lower than it had been, with most of the images being a variation of only two base images.
+				See figure \ref{fig:wa128:epoch550generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch550_generator}
+					\caption{Epoch 550 of model 5.}
+					\label{fig:wa128:epoch550generator}
+				\end{figure}
+
+				By epoch 600, image diversity has improved marginally.
+				Many images are still static.
+				See figure \ref{fig:wa128:epoch600generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch600_generator}
+					\caption{Epoch 600 of model 5.}
+					\label{fig:wa128:epoch600generator}
+				\end{figure}
+
+				At epoch 650, some of the images are decent again.
+				Only a few images have static, although image diversity is still terrible.
+				See figure \ref{fig:wa128:epoch650generator}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch650_generator}
+					\caption{Epoch 650 of model 5.}
+					\label{fig:wa128:epoch650generator}
+				\end{figure}
+
+				At epoch 700, a couple of images are somewhat convincing.
+				See figure \ref{fig:wa128:epoch700generator}.
+
+				This model did not behave that way that we had expected it to.
+				Many questions remain about why it was so much less successful than model 4.
+				\begin{figure}
+					\centering
+					\includegraphics[width=1.0\linewidth]{past_attempts/landscapes/128x128/images/epoch700_generator}
+					\caption{Epoch 700 of model 5.}
+					\label{fig:wa128:epoch700generator}
+				\end{figure}
 
 	\section{Conclusion}
 		Our research has emphasized a key detail in machine learning: you need a very large dataset to get good results.
