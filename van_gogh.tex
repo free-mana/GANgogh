@@ -19,11 +19,6 @@
 \title{GAN Gogh: Use of a GAN to Imitate the Style of Vincent Van Gogh}
 \begin{document}
 	\setminted{breaklines, autogobble, tabsize=4, fontsize=\small}
-% TODO: citations go inside periods.  I think.  Look it up.
-% data.gov uses dataset as a single word, so we will adhere to that for this document
-% TODO: You are not submitting this for publication, therefore you can afford to be frank with your null results
-% eg talk about what you did that didn't work/ was a huge dumpster fire/ a giant waste of time, but WHY that is interesting knowledge.
-% see replication crisis
 	\maketitle
 	\section{Introduction}
 		\subsection{Background}
@@ -1097,17 +1092,18 @@
 				\end{figure}
 
 	\section{Conclusion}
-		Our research has emphasized a key detail in machine learning: you need a very large dataset to get good results.
-		This was shown by our models failing to converge with smaller dataset sizes.
-		The datasets with 211, 400, and even 1,000 images all failed to converge.
-		% failed to converge upone what
-		% because they had converged to certain choices, such as color selection/ pallete
-		% or horizonal deliniation (eg there's a surface (land/sea) and a sky) for the relevant data set
+		Our research has emphasized a key detail in machine learning: a very large dataset is needed in order to get good results.
+		This was shown by our models trained on smaller dataset sizes not producing the desired results, even with hundreds or even thousands of epochs of training.
 
+		Despite their failure to produce the kind of details that we were looking for, models 1 through 3 did succeed in learning the general color palette of the images.
 
 		The model with the smallest dataset that achieved convincing results was trained on 15,000 images.
-		Future research may include determining the threshold more precisely, as there is still a large gap between 1,000 and 15,000.
-		Due to this inherent limiting requirement, it seems that our initial goal of computationally determining what characteristics define Van Gogh's art was likely unattainable.
+		The next largest dataset had 1,000 images, and the model trained on that dataset was not trained for nearly as many epochs as the first two.
+		Future research may include determining the threshold of number of images required more precisely, as there is still a large gap between 1,000 and 15,000.
+		Additionally, future research may investigate the effect on image size on image quality.
+		The stark difference between models 4 and 5 clearly shows that this variable has a significant impact.
+
+		Due to the inherent limiting requirement of a very large dataset, it seems that our initial goal of computationally determining what characteristics define Van Gogh's art was likely unattainable.
 
 \appendix
 	\section{Appendix: Weekly Progress}
