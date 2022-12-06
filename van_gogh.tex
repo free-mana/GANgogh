@@ -119,7 +119,7 @@
 		However, we then realized that this solution wasn't actually compatible with the TorchGAN code, so we started going through the documentation of the built-in datasets to figure out what we should subclass.
 		Once we found the appropriate class, we began writing a custom dataset class that would allow the user to specify a directory, and from that, load all of the images in that directory as a dataset.
 		We then learned that this was almost exactly the same usage and behavior as the already-existing ImageFolder class in the TorchVision package, so we switched to using that instead.
-		It is regrettable that we spent time working on tools that were never used, but doing so allowed us to become more familiar with the internal structure of the package, which increased our understanding of how the code works.
+		A large amount of effort was spent performing a deep dive into novel and unfamiliar tools; doing so allowed us to become more familiar with the internal structure of the package, which increased our understanding of how the code works.
 
 		Functionally, the block creates an ImageFolder object in memory from the directory provided.
 		The images are scaled to the specified size, normalized, and, if specified, converted to grayscale.
@@ -240,7 +240,7 @@
 		\end{code}
 		Code block \ref{code:block10} loads in a previously-created model and then resumes training on it.
 		Due to the way that TorchGAN works, a new Trainer object is required to resume training, as each Trainer has a set number of epochs that it will train until.
-		If, for example, one were to load a model that had already been trained for 100 epochs into a Trainer set to train for 100 epochs, the Trainer would not perform any additional training, as the target number has already been reached.
+		If, for example, you were to load a model that had already been trained for 100 epochs into a Trainer set to train for 100 epochs, the Trainer would not perform any additional training, as the target number has already been reached.
 	\section{How to Use Our Code}
 		If you are running our code on Colab, be sure to either run code block \ref{code:block1} or manually install TorchGAN, as Colab doesn't have it installed by default.
 
