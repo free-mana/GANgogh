@@ -294,7 +294,6 @@
 			\end{enumerate}
 			All other parameters remained constant between models.
 		\subsection{Results}
-		%TODO: if possible expand on captions
 			\subsubsection{Model 1: Van Gogh Museum Dataset}
 				This model was our first attempt at our goal.
 				For the first thousand or so epochs of training, the model produced nothing but static, with occasional blue patches.\footnote{Each figure is composed of a grid of generated samples.}
@@ -395,7 +394,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0369_generator}
-					\caption{Epoch 369 of model 2.}
+					\caption{Epoch 369 of model 2. Here, the color shifts back to yellow, with some of the images being divided into two sections in a different color.}
 					\label{fig:cgvg:epoch0369generator}
 				\end{figure}
 
@@ -405,7 +404,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0398_generator}
-					\caption{Epoch 398 of model 2.}
+					\caption{Epoch 398 of model 2. Here, the color becomes more golden. The division is still present in some images, but appears to be less stark.}
 					\label{fig:cgvg:epoch0398generator}
 				\end{figure}
 
@@ -416,7 +415,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0412_generator}
-					\caption{Epoch 412 of model 2.}
+					\caption{Epoch 412 of model 2. Here, the image has taken on two distinct tones: dark orange and light blue. The images transition fairly smoothly between the colors, rather than the harsh divisions in figures \ref{fig:cgvg:epoch0369generator} and \ref{fig:cgvg:epoch0398generator}. Each image has a primary color, but also contains elements of the other.}
 					\label{fig:cgvg:epoch0412generator}
 				\end{figure}
 
@@ -425,7 +424,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0429_generator}
-					\caption{Epoch 429 of model 2.}
+					\caption{Epoch 429 of model 2. Here, the colors have switched to light orange and dark blue-green.}
 					\label{fig:cgvg:epoch0429generator}
 				\end{figure}
 
@@ -434,7 +433,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0455_generator}
-					\caption{Epoch 455 of model 2.}
+					\caption{Epoch 455 of model 2. Here, the colors have shifted to reddish-brown and green. Additionally, the smooth transitions are mostly gone, with most images consisting almost entirely of one color or the other.}
 					\label{fig:cgvg:epoch0455generator}
 				\end{figure}
 
@@ -443,7 +442,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0818_generator}
-					\caption{Epoch 818 of model 2.}
+					\caption{Epoch 818 of model 2. Here, the images are once again monochromatic, but now show a range of values from light to dark.}
 					\label{fig:cgvg:epoch0818generator}
 				\end{figure}
 
@@ -451,7 +450,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0843_generator}
-					\caption{Epoch 843 of model 2.}
+					\caption{Epoch 843 of model 2. Here, the contrast of the images is much more pronounced, with most images consisting of bright yellow and dark brown horizontal stripes.}
 					\label{fig:cgvg:epoch0843generator}
 				\end{figure}
 
@@ -461,7 +460,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0850_generator}
-					\caption{Epoch 850 of model 2.}
+					\caption{Epoch 850 of model 2. Here, four colors are present: yellow, brown, light blue, and dark blue. None of the images contain all four colors; most images contain two of the colors, but some have three.}
 					\label{fig:cgvg:epoch0850generator}
 				\end{figure}
 
@@ -471,7 +470,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0858_generator}
-					\caption{Epoch 858 of model 2.}
+					\caption{Epoch 858 of model 2. Here, a combination of previously-seen characteristics is seen. There is a sharp division of color like in epoch 369, multiple main colors like epoch 850, and some variation in value like epoch 818.}
 					\label{fig:cgvg:epoch0858generator}
 				\end{figure}
 
@@ -481,7 +480,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0863_generator}
-					\caption{Epoch 863 of model 2.}
+					\caption{Epoch 863 of model 2. Here, the images show a vibrant mix of multiple colors. The colors transition even more smoothly than in epoch 412, and all images have at least two colors present.}
 					\label{fig:cgvg:epoch0863generator}
 				\end{figure}
 
@@ -490,7 +489,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0871_generator}
-					\caption{Epoch 871 of model 2.}
+					\caption{Epoch 871 of model 2. Here, there are still multiple colors, but the contrast has been increased like in epoch 843.}
 					\label{fig:cgvg:epoch0871generator}
 				\end{figure}
 
@@ -498,7 +497,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0902_generator}
-					\caption{Epoch 902 of model 2.}
+					\caption{Epoch 902 of model 2. Here, dark dots have formed on top of the images.}
 					\label{fig:cgvg:epoch0902generator}
 				\end{figure}
 
@@ -507,7 +506,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch0911_generator}
-					\caption{Epoch 911 of model 2.}
+					\caption{Epoch 911 of model 2. Compared to figure \ref{fig:cgvg:epoch0902generator}, the dots have had color added, giving the images a textured appearance. There is still a tendency for the top quarter of the image to be sharply divided from the rest of the image.}
 					\label{fig:cgvg:epoch0911generator}
 				\end{figure}
 
@@ -525,7 +524,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch1084_generator}
-					\caption{Epoch 1084 of model 2.}
+					\caption{Epoch 1084 of model 2. Here, the model is beginning to approximate some recognizable shapes, rather than just colors. The details are extremely subjective, but some of these images could be interpreted as portraits.}
 					\label{fig:cgvg:epoch1084generator}
 				\end{figure}
 
@@ -534,7 +533,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch1490_generator}
-					\caption{Epoch 1490 of model 2.}
+					\caption{Epoch 1490 of model 2. 400 epochs after figure \ref{fig:cgvg:epoch1084generator}, the details are somewhat more defined.}
 					\label{fig:cgvg:epoch1490generator}
 				\end{figure}
 
@@ -542,7 +541,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch1990_generator}
-					\caption{Epoch 1990 of model 2.}
+					\caption{Epoch 1990 of model 2. Here, the images seems to collapse back into static, with only occasional details visible.}
 					\label{fig:cgvg:epoch1990generator}
 				\end{figure}
 
@@ -551,7 +550,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2051_generator}
-					\caption{Epoch 2051 of model 2.}
+					\caption{Epoch 2051 of model 2. Here,  many of the images are still static, but a few have redeveloped recognizable features. In particular, the rightmost image in the second to last column looks like a portrait to us.}
 					\label{fig:cgvg:epoch2051generator}
 				\end{figure}
 
@@ -560,7 +559,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2415_generator}
-					\caption{Epoch 2415 of model 2.}
+					\caption{Epoch 2415 of model 2. Here, the details present have become even more defined, although many images are still mostly static.}
 					\label{fig:cgvg:epoch2415generator}
 				\end{figure}
 
@@ -569,7 +568,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2457_generator}
-					\caption{Epoch 2457 of model 2.}
+					\caption{Epoch 2457 of model 2. Here, the images collapse into noise again, this time even more completely. Absolutely no detail is present.}
 					\label{fig:cgvg:epoch2457generator}
 				\end{figure}
 
@@ -578,14 +577,14 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2470_generator}
-					\caption{Epoch 2470 of model 2.}
+					\caption{Epoch 2470 of model 2. After apparently collapsing in figure \ref{fig:cgvg:epoch2457generator}, the model seems to start over from the beginning, although it progresses much more quickly this time. Here, the model shows color development like epoch 369 (figure \ref{fig:cgvg:epoch0369generator}).}
 					\label{fig:cgvg:epoch2470generator}
 				\end{figure}
 
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2482_generator}
-					\caption{Epoch 2482 of model 2.}
+					\caption{Epoch 2482 of model 2. Here, the images are somewhat reminiscent of figure \ref{fig:cgvg:epoch0818generator} from epoch 818.}
 					\label{fig:cgvg:epoch2482generator}
 				\end{figure}
 
@@ -596,7 +595,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2539_generator}
-					\caption{Epoch 2539 of model 2.}
+					\caption{Epoch 2539 of model 2. Here, the generated images begin to look very uniform, reminiscent of the final epoch of the previous dataset (figure \ref{fig:vgm:epoch8000generator}).}
 					\label{fig:cgvg:epoch2539generator}
 				\end{figure}
 
@@ -604,7 +603,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2582_generator}
-					\caption{Epoch 2582 of model 2.}
+					\caption{Epoch 2582 of model 2. Here, the images have largely reverted to blocks of two colors.}
 					\label{fig:cgvg:epoch2582generator}
 				\end{figure}
 
@@ -612,7 +611,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2596_generator}
-					\caption{Epoch 2596 of model 2.}
+					\caption{Epoch 2596 of model 2. Here, the images seem to collapse back into static again.}
 					\label{fig:cgvg:epoch2596generator}
 				\end{figure}
 
@@ -620,7 +619,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2710_generator}
-					\caption{Epoch 2710 of model 2.}
+					\caption{Epoch 2710 of model 2. Here, the model is making progress in rebuilding, although there is still a lack of variety in the images.}
 					\label{fig:cgvg:epoch2710generator}
 				\end{figure}
 
@@ -628,7 +627,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model2/epoch2750_generator}
-					\caption{Epoch 2750 of model 2.}
+					\caption{Epoch 2750 of model 2. Here, the images appear to show a single foreground image against a variety of backgrounds.}
 					\label{fig:cgvg:epoch2750generator}
 				\end{figure}
 
@@ -651,13 +650,13 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch285_generator}
-					\caption{Epoch 285 of model 3}
+					\caption{Epoch 285 of model 3. Here, the model produces variations of two colors, with smooth transitions between.}
 					\label{fig:cgm:epoch285generator}
 				\end{figure}
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch301_generator}
-					\caption{Epoch 301 of model 3}
+					\caption{Epoch 301 of model 3.}
 					\label{fig:cgm:epoch301generator}
 				\end{figure}
 
@@ -666,7 +665,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch315_generator}
-					\caption[]{Epoch 315 of model 3}
+					\caption[]{Epoch 315 of model 3. Here, some horizontal divisions can be seen beginning to form.}
 					\label{fig:cgm:epoch315generator}
 				\end{figure}
 
@@ -676,7 +675,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch328_generator}
-					\caption[]{Epoch 328 of model 3}
+					\caption[]{Epoch 328 of model 3. Here, a texture is beginning to form on the images.}
 					\label{fig:cgm:epoch328generator}
 				\end{figure}
 
@@ -685,7 +684,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch354_generator}
-					\caption[]{Epoch 354 of model 3}
+					\caption[]{Epoch 354 of model 3. Here, the texture has developed further, possibly even including diagonal divisions.}
 					\label{fig:cgm:epoch354generator}
 				\end{figure}
 
@@ -694,7 +693,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch369_generator}
-					\caption[]{Epoch 369 of model 3}
+					\caption[]{Epoch 369 of model 3. Here, some preliminary details are beginning to form. Some of the images resemble skyscapes, while others resemble landscapes.}
 					\label{fig:cgm:epoch369generator}
 				\end{figure}
 
@@ -703,7 +702,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch393_generator}
-					\caption[]{Epoch 393 of model 3}
+					\caption[]{Epoch 393 of model 3. Here, the texture is fading, and details are becoming somewhat more clear.}
 					\label{fig:cgm:epoch393generator}
 				\end{figure}
 
@@ -713,7 +712,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch411_generator}
-					\caption[]{Epoch 411 of model 3}
+					\caption[]{Epoch 411 of model 3. Here, some texture is reappearing. More color variation is visible in the images that are primarily green.}
 					\label{fig:cgm:epoch411generator}
 				\end{figure}
 
@@ -722,7 +721,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch439_generator}
-					\caption[]{Epoch 439 of model 3}
+					\caption[]{Epoch 439 of model 3. Here, the texture is receding again, and some of the seascape-like images are quite good.}
 					\label{fig:cgm:epoch439generator}
 				\end{figure}
 
@@ -730,7 +729,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch468_generator}
-					\caption[]{Epoch 468 of model 3}
+					\caption[]{Epoch 468 of model 3. The texture has once again formed.}
 					\label{fig:cgm:epoch468generator}
 				\end{figure}
 
@@ -738,26 +737,27 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch483_generator}
-					\caption[]{Epoch 483 of model 3}
+					\caption[]{Epoch 483 of model 3. Again, less texture.}
 					\label{fig:cgm:epoch483generator}
 				\end{figure}
 
 				Epochs 492 and 498 both produce some decent images.
 				Although this model was trained through epoch 500, it is likely that one of these two epochs produced the best images.
 				Compare figures \ref{fig:cgm:epoch492generator} and \ref{fig:cgm:epoch498generator}.
+
 				This model was somewhat successful.
 				It may have continued to improve if we had continued training, but at this point in the project we had moved away from attempting to train a single model for as long as possible.
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch492_generator}
-					\caption[]{Epoch 492 of model 3}
+					\caption[]{Epoch 492 of model 3. One of the candidates for best images produced by this model.}
 					\label{fig:cgm:epoch492generator}
 				\end{figure}
 
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model3/epoch498_generator}
-					\caption[]{Epoch 498 of model 3}
+					\caption[]{Epoch 498 of model 3. The other candidate for best images produced by this model.}
 					\label{fig:cgm:epoch498generator}
 				\end{figure}
 
@@ -787,7 +787,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch004_generator}
-					\caption{Epoch 4 of model 4.}
+					\caption{Epoch 4 of model 4. The model spent a few epochs trying random colors, but progressed past this quite quickly.}
 					\label{fig:wa64:epoch004generator}
 				\end{figure}
 
@@ -795,7 +795,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch021_generator}
-					\caption{Epoch 21 of model 4.}
+					\caption{Epoch 21 of model 4. Here, the model seems to have learned that the sky is a lighter color than the ground.}
 					\label{fig:wa64:epoch021generator}
 				\end{figure}
 
@@ -803,7 +803,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch039_generator}
-					\caption{Epoch 39 of model 4.}
+					\caption{Epoch 39 of model 4. Here, the sky and ground are very clearly defined, and objects are beginning to form in the midground and background of the image.}
 					\label{fig:wa64:epoch039generator}
 				\end{figure}
 
@@ -812,7 +812,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch050_generator}
-					\caption{Epoch 50 of model 4.}
+					\caption{Epoch 50 of model 4. Here, many images have static, but details are developing.}
 					\label{fig:wa64:epoch050generator}
 				\end{figure}
 
@@ -820,7 +820,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch076_generator}
-					\caption{Epoch 76 of model 4.}
+					\caption{Epoch 76 of model 4. Here, the static is receding, and details are becoming clearer.}
 					\label{fig:wa64:epoch076generator}
 				\end{figure}
 
@@ -829,7 +829,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch099_generator}
-					\caption{Epoch 99 of model 4.}
+					\caption{Epoch 99 of model 4. Here, the static has returned, but fine details are continuing to develop.}
 					\label{fig:wa64:epoch099generator}
 				\end{figure}
 
@@ -839,7 +839,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch125_generator}
-					\caption{Epoch 125 of model 4.}
+					\caption{Epoch 125 of model 4. Here, the static appears to be somewhat smoothing out. No image appears to be attempted twice; each generated image is unique.}
 					\label{fig:wa64:epoch125generator}
 				\end{figure}
 
@@ -849,7 +849,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch150_generator}
-					\caption{Epoch 150 of model 4.}
+					\caption{Epoch 150 of model 4. Here, the static has come back in some images, but others are starting to look convincing. The model appears to have learned how to mimic the sky portion of images more quickly than the ground portion.}
 					\label{fig:wa64:epoch150generator}
 				\end{figure}
 
@@ -859,7 +859,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch175_generator}
-					\caption{Epoch 175 of model 4.}
+					\caption{Epoch 175 of model 4. There is very little static, but not enough of the images are detailed enough to be convincing.}
 					\label{fig:wa64:epoch175generator}
 				\end{figure}
 
@@ -868,7 +868,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch201_generator}
-					\caption{Epoch 201 of model 4.}
+					\caption{Epoch 201 of model 4. Here, the static returns, but the images otherwise appear to be making progress.}
 					\label{fig:wa64:epoch201generator}
 				\end{figure}
 
@@ -877,7 +877,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch225_generator}
-					\caption{Epoch 225 of model 4.}
+					\caption{Epoch 225 of model 4. The static present in figure \ref{fig:wa64:epoch201generator} is still there.}
 					\label{fig:wa64:epoch225generator}
 				\end{figure}
 
@@ -887,7 +887,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch250_generator}
-					\caption{Epoch 250 of model 4.}
+					\caption{Epoch 250 of model 4. The static has begun to recede. Additionally, the image in the top row and third from the right appears to us to have developed human figures. This surprised us, as we were not aware that this dataset contained anything except for landscapes.}
 					\label{fig:wa64:epoch250generator}
 				\end{figure}
 
@@ -896,7 +896,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch275_generator}
-					\caption{Epoch 275 of model 4.}
+					\caption{Epoch 275 of model 4. Here, the static has faded further, and some images are becoming very detailed.}
 					\label{fig:wa64:epoch275generator}
 				\end{figure}
 
@@ -905,7 +905,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch298_generator}
-					\caption{Epoch 298 of model 4.}
+					\caption{Epoch 298 of model 4. Here, there is almost no static present, and more of the images are becoming convincing.}
 					\label{fig:wa64:epoch298generator}
 				\end{figure}
 
@@ -914,7 +914,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch328_generator}
-					\caption{Epoch 328 of model 4.}
+					\caption{Epoch 328 of model 4. Here, only a few images have any static at all, and nearly all of the rest look highly convincing.}
 					\label{fig:wa64:epoch328generator}
 				\end{figure}
 
@@ -923,7 +923,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch350_generator}
-					\caption{Epoch 350 of model 4.}
+					\caption{Epoch 350 of model 4. These images have a similarly high level of detail compared to figure \ref{fig:wa64:epoch328generator}, and the remaining static is starting to smooth out.}
 					\label{fig:wa64:epoch350generator}
 				\end{figure}
 
@@ -933,7 +933,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch375_generator}
-					\caption{Epoch 375 of model 4.}
+					\caption{Epoch 375 of model 4. Here, virtually all of the images pass as originals. There are still some with static, but they are greatly outnumbered.}
 					\label{fig:wa64:epoch375generator}
 				\end{figure}
 
@@ -945,7 +945,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model4/epoch400_generator}
-					\caption{Epoch 400 of model 4.}
+					\caption{Epoch 400 of model 4. The images do not show a distinct improvement over those in figure \ref{fig:wa64:epoch375generator}. It is possible that this model's performance has peaked.}
 					\label{fig:wa64:epoch400generator}
 				\end{figure}
 			\subsubsection{Model 5: WikiArt Images, 128 pixels}
@@ -954,7 +954,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch024_generator}
-					\caption{Epoch 24 of model 5.}
+					\caption{Epoch 24 of model 5. Progress is in keeping with that of model 4.}
 					\label{fig:wa128:epoch024generator}
 				\end{figure}
 
@@ -963,7 +963,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch050_generator}
-					\caption{Epoch 50 of model 5.}
+					\caption{Epoch 50 of model 5. Also approximately the expected progression.}
 					\label{fig:wa128:epoch050generator}
 				\end{figure}
 
@@ -975,7 +975,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch200_generator}
-					\caption{Epoch 200 of model 5.}
+					\caption{Epoch 200 of model 5. Here, image diversity has plummeted. Most of the images are slight variations on the same four or so base images. We are not sure what caused this to happen so early in the training, as this phenomenon was not seen in previous models until much further into training.}
 					\label{fig:wa128:epoch200generator}
 				\end{figure}
 
@@ -984,7 +984,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch250_generator}
-					\caption{Epoch 250 of model 5.}
+					\caption{Epoch 250 of model 5. There is less static than before.}
 					\label{fig:wa128:epoch250generator}
 				\end{figure}
 
@@ -994,7 +994,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch300_generator}
-					\caption{Epoch 300 of model 5.}
+					\caption{Epoch 300 of model 5. The images have formed vertical streaks.}
 					\label{fig:wa128:epoch300generator}
 				\end{figure}
 
@@ -1003,7 +1003,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch350_generator}
-					\caption{Epoch 350 of model 5.}
+					\caption{Epoch 350 of model 5. Here, the streaks are gone, and many of the images are getting clearer, although image diversity is still low.}
 					\label{fig:wa128:epoch350generator}
 				\end{figure}
 
@@ -1012,7 +1012,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch400_generator}
-					\caption{Epoch 400 of model 5.}
+					\caption{Epoch 400 of model 5. Here, there is very little static, but several of the images have developed a textured appearance.}
 					\label{fig:wa128:epoch400generator}
 				\end{figure}
 
@@ -1022,7 +1022,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch450_generator}
-					\caption{Epoch 450 of model 5.}
+					\caption{Epoch 450 of model 5. Here, the images are mostly as expected, however two of the images are surrounded by a white border. We are not sure where this feature came from.}
 					\label{fig:wa128:epoch450generator}
 				\end{figure}
 
@@ -1031,7 +1031,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch500_generator}
-					\caption{Epoch 500 of model 5.}
+					\caption{Epoch 500 of model 5. Images are mostly decent quality, aside from the low variation.}
 					\label{fig:wa128:epoch500generator}
 				\end{figure}
 
@@ -1041,7 +1041,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch550_generator}
-					\caption{Epoch 550 of model 5.}
+					\caption{Epoch 550 of model 5. Here, many of the images appear to have collapsed into static. Additionally, image diversity is even lower than it had been, with most of the images being a variation of only two base images.}
 					\label{fig:wa128:epoch550generator}
 				\end{figure}
 
@@ -1051,7 +1051,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch600_generator}
-					\caption{Epoch 600 of model 5.}
+					\caption{Epoch 600 of model 5. Here, image diversity has improved marginally. Many images are still static.}
 					\label{fig:wa128:epoch600generator}
 				\end{figure}
 
@@ -1061,7 +1061,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch650_generator}
-					\caption{Epoch 650 of model 5.}
+					\caption{Epoch 650 of model 5. Here, some of the images are decent again. Only a few images have static, although image diversity is still terrible.}
 					\label{fig:wa128:epoch650generator}
 				\end{figure}
 
@@ -1073,7 +1073,7 @@
 				\begin{figure}
 					\centering
 					\includegraphics[width=1.0\linewidth]{results/model5/epoch700_generator}
-					\caption{Epoch 700 of model 5.}
+					\caption{Epoch 700 of model 5. This was the final epoch that this model was trained to. A couple of images are somewhat convincing.}
 					\label{fig:wa128:epoch700generator}
 				\end{figure}
 
